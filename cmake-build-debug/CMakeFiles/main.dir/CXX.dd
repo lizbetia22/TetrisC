@@ -1,0 +1,8 @@
+ninja_dyndep_version = 1.0
+build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm
+
+build CMakeFiles/main.dir/src/game/grid.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm
+
+build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/grid.pcm: dyndep
+  restat = 1
+

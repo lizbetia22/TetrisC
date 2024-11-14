@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\grid.cpp.obj",
+      "requires": [
+        {
+          "logical-name": "grid"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

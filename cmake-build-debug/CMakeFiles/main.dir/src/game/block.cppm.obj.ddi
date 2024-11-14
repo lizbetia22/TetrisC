@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\block.cppm.obj",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "block",
+          "source-path": "C:/Esimed admin/C++/TetrisC/src/game/block.cppm"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\grid.cppm.obj",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "Grid",
+          "source-path": "C:/Esimed admin/C++/TetrisC/src/game/grid.cppm"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

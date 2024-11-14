@@ -1,9 +1,17 @@
 #include <SFML/Graphics.hpp>
 
+import grid;
+
 int main()
 {
-    auto window = sf::RenderWindow({1920u, 1080u}, "Tetris");
+    constexpr int windowWidth = 600;
+    constexpr int windowHeight = 900;
+    constexpr int cellSize = 30;
+
+    sf::RenderWindow window({windowWidth, windowHeight}, "Tetris");
     window.setFramerateLimit(144);
+
+    grid::Grid grid(windowWidth, windowHeight, cellSize);
 
     while (window.isOpen())
     {
@@ -16,6 +24,9 @@ int main()
         }
 
         window.clear();
+        grid.draw(window);
         window.display();
     }
+
+    return 0;
 }

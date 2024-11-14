@@ -13,10 +13,22 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main src/main.cpp
-        src/main.cpp)
+add_executable(
+        main
+        src/main.cpp
+        src/game/grid.cpp
+)
+
+target_sources(
+        main
+        PUBLIC
+        FILE_SET CXX_MODULES
+        FILES
+        src/game/modules/grid.cppm
+)
+
 target_link_libraries(main PRIVATE sfml-graphics)
-target_compile_features(main PRIVATE cxx_std_17)
+target_compile_features(main PRIVATE cxx_std_23)
 
 if(WIN32)
     add_custom_command(
