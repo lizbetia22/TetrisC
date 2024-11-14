@@ -1,0 +1,37 @@
+# ninja log v6
+1	44	7532922623563774	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	354c067f63747d7b
+1	44	7532922623563774	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	354c067f63747d7b
+44	21453	7532922837654243	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	48bcb6e8386af35b
+9	1292	7532925519658303	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	70cd988b8def4f28
+44	21453	7532922837654243	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	48bcb6e8386af35b
+1334	1375	7532925533280175	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	93b6a873f6470bae
+1417	1459	7532925534118150	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	6a404c28ab1dae2f
+9	1292	7532925519658303	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	70cd988b8def4f28
+1459	1499	7532925534531668	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	a71e7b3111f547ba
+1293	1334	7532925532870795	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	71a50cbc11ca9585
+1293	1334	7532925532870795	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	71a50cbc11ca9585
+1334	1375	7532925533280175	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	93b6a873f6470bae
+1375	1416	7532925533697359	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	e7d14f009e1f946d
+1375	1416	7532925533697359	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	e7d14f009e1f946d
+1417	1459	7532925534118150	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	6a404c28ab1dae2f
+1459	1499	7532925534531668	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	a71e7b3111f547ba
+1499	1558	7532925535111014	CMakeFiles/sfml-populate-complete	8b61ee002590f543
+1499	1558	7532925535111014	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	8b61ee002590f543
+1499	1558	7532925535111014	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	8b61ee002590f543
+1499	1558	7532925535111014	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	8b61ee002590f543
+8	1362	7532926157944101	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	70cd988b8def4f28
+8	1362	7532926157944101	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	70cd988b8def4f28
+1362	1402	7532926171843467	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	71a50cbc11ca9585
+1362	1402	7532926171843467	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	71a50cbc11ca9585
+1402	1441	7532926172236230	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	93b6a873f6470bae
+1402	1441	7532926172236230	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	93b6a873f6470bae
+1441	1480	7532926172635150	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	e7d14f009e1f946d
+1441	1480	7532926172635150	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	e7d14f009e1f946d
+1481	1519	7532926173022585	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	6a404c28ab1dae2f
+1481	1519	7532926173022585	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	6a404c28ab1dae2f
+1519	1558	7532926173403167	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	a71e7b3111f547ba
+1519	1558	7532926173403167	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	a71e7b3111f547ba
+1558	1614	7532926173958875	CMakeFiles/sfml-populate-complete	8b61ee002590f543
+1558	1614	7532926173958875	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	8b61ee002590f543
+1558	1614	7532926173958875	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	8b61ee002590f543
+1558	1614	7532926173958875	C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	8b61ee002590f543
