@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
+#include <cstdlib>
 
 import grid;
 import blocks;
@@ -22,11 +23,12 @@ int main()
         throw std::runtime_error("Unable to load texture from file!");
     }
 
-    blocks::Blocks yellowBlocks(cellSize, tileTexture, 0);
+    int shapeType = std::rand() % 7;
+    blocks::Blocks randomBlock(cellSize, tileTexture, shapeType);
 
     grid::Grid grid(windowWidth, windowHeight, cellSize);
 
-    movements::Movements controller(yellowBlocks, gridWidthInCells, gridHeightInCells, cellSize);
+    movements::Movements controller(randomBlock, gridWidthInCells, gridHeightInCells, cellSize);
 
     sf::Clock deltaClock;
 
@@ -46,7 +48,7 @@ int main()
 
         window.clear();
         grid.draw(window);
-        yellowBlocks.draw(window);
+        randomBlock.draw(window);
         window.display();
     }
 
