@@ -812,4 +812,10 @@ CMakeFiles\main.dir\src\game\movements.cpp.obj.ddi: \
   C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/Glsl.inl \
   C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
   C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/Text.hpp \
-  C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp
+  C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/memory \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__memory/align.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__memory/assume_aligned.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__memory/ranges_uninitialized_algorithms.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__memory/raw_storage_iterator.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__memory/uses_allocator_construction.h

@@ -1,6 +1,7 @@
 module;
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 export module movements;
 import blocks;
@@ -9,8 +10,13 @@ export namespace movements {
     class Movements {
     public:
         Movements(blocks::Blocks& blocks, int gridWidth, int gridHeight, int cellSize);
+        ~Movements() = default;
+
+        Movements(const Movements&) = delete;
+        Movements& operator=(const Movements&) = delete;
+
         void handleInput() const;
-        void update(float deltaTime);
+        void update(float deltaTime) const;
 
     private:
         blocks::Blocks& m_blocks;
@@ -19,6 +25,6 @@ export namespace movements {
         int m_cellSize;
 
         bool canMove(int dx, int dy) const;
-        sf::Clock m_moveClock;
+        std::unique_ptr<sf::Clock> m_moveClock;
     };
 }
