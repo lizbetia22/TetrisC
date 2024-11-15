@@ -6,7 +6,7 @@ module;
 module blocks;
 
 namespace blocks {
-    Blocks::Blocks(int cellSize, const sf::Texture &texture, int tileIndex): m_cellSize(cellSize) {
+    Blocks::Blocks(const int cellSize, const sf::Texture &texture, const int tileIndex): m_cellSize(cellSize) {
         initializeBlocks(texture, tileIndex);
     }
 
@@ -18,8 +18,7 @@ namespace blocks {
 
             m_blocks[i].setTextureRect(sf::IntRect(tileIndex * tileSize, 0, tileSize, tileSize));
 
-            m_blocks[i].setPosition(i * m_cellSize, 0);
-
+            m_blocks[i].setPosition((3 + i) * m_cellSize, 0);
             m_blocks[i].setScale(
                 static_cast<float>(m_cellSize) / tileSize,
                 static_cast<float>(m_cellSize) / tileSize
@@ -31,5 +30,15 @@ namespace blocks {
         for (const auto& block : m_blocks) {
             window.draw(block);
         }
+    }
+
+    void Blocks::move(const int dx, const int dy) {
+        for (auto& block : m_blocks) {
+            block.move(dx * m_cellSize, dy * m_cellSize);
+        }
+    }
+
+    const std::array<sf::Sprite, 4>& Blocks::getBlocks() const {
+        return m_blocks;
     }
 }

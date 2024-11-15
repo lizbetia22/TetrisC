@@ -11,6 +11,8 @@ export namespace blocks {
         Blocks(int cellSize, const sf::Texture& texture, int tileIndex);
 
         void draw(sf::RenderWindow& window) const;
+        void move(int dx, int dy);
+        const std::array<sf::Sprite, 4>& getBlocks() const;
 
     private:
         int m_cellSize;
