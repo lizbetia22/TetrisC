@@ -1,29 +1,18 @@
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
-#include <array>
 
 import grid;
 import blocks;
-
-constexpr int gridWidthInCells = 10;
-constexpr int gridHeightInCells = 30;
-
-bool canMove(const blocks::Blocks& blocks, const int dx, const int dy, const int cellSize) {
-    for (const auto& block : blocks.getBlocks()) {
-        sf::Vector2f futurePosition = block.getPosition() + sf::Vector2f(dx * cellSize, dy * cellSize);
-        if (futurePosition.x < 0 || futurePosition.x >= gridWidthInCells * cellSize ||
-            futurePosition.y >= gridHeightInCells * cellSize) {
-            return false;
-            }
-    }
-    return true;
-}
+import movements;
 
 int main()
 {
     constexpr int windowWidth = 600;
     constexpr int windowHeight = 900;
     constexpr int cellSize = 60;
+
+    constexpr int gridWidthInCells = windowWidth / cellSize;
+    constexpr int gridHeightInCells = windowHeight / cellSize;
 
     sf::RenderWindow window({windowWidth, windowHeight}, "Tetris");
     window.setFramerateLimit(60);
@@ -37,7 +26,9 @@ int main()
 
     grid::Grid grid(windowWidth, windowHeight, cellSize);
 
-    sf::Clock clock;
+    movements::Movements controller(yellowBlocks, gridWidthInCells, gridHeightInCells, cellSize);
+
+    sf::Clock deltaClock;
 
     while (window.isOpen())
     {
@@ -47,25 +38,11 @@ int main()
                 window.close();
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-            if (canMove(yellowBlocks, -1, 0, cellSize)) {
-                yellowBlocks.move(-1, 0);
-                sf::sleep(sf::milliseconds(150));
-            }
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-            if (canMove(yellowBlocks, 1, 0, cellSize)) {
-                yellowBlocks.move(1, 0);
-                sf::sleep(sf::milliseconds(150));
-            }
-        }
+        float deltaTime = deltaClock.restart().asSeconds();
 
-        if (clock.getElapsedTime().asSeconds() > 1) {
-            if (canMove(yellowBlocks, 0, 1, cellSize)) {
-                yellowBlocks.move(0, 1);
-            }
-            clock.restart();
-        }
+        controller.handleInput();
+
+        controller.update(deltaTime);
 
         window.clear();
         grid.draw(window);

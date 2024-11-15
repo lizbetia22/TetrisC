@@ -1,0 +1,3 @@
+-x c++-module
+-fmodule-output=CMakeFiles/main.dir/movements.pcm
+-fmodule-file=blocks=CMakeFiles/main.dir/blocks.pcm

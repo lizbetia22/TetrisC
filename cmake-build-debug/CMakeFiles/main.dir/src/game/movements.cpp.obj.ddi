@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\movements.cpp.obj",
+      "requires": [
+        {
+          "logical-name": "movements"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

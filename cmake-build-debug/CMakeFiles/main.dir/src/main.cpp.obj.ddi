@@ -9,6 +9,9 @@
         },
         {
           "logical-name": "blocks"
+        },
+        {
+          "logical-name": "movements"
         }
       ]
     }
