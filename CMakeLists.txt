@@ -18,7 +18,7 @@ add_executable(
         src/main.cpp
         src/game/grid.cpp
         src/game/blocks.cpp
-        src/game/movements.cpp
+        src/game/blocksController.cpp
 )
 
 target_sources(
@@ -28,7 +28,7 @@ target_sources(
         FILES
         src/game/modules/grid.cppm
         src/game/modules/blocks.cppm
-        src/game/modules/movements.cppm
+        src/game/modules/blocksController.cppm
 )
 
 target_link_libraries(main PRIVATE sfml-graphics)

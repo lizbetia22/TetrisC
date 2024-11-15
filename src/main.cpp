@@ -4,7 +4,7 @@
 
 import grid;
 import blocks;
-import movements;
+import blocksController;
 
 int main()
 {
@@ -28,7 +28,7 @@ int main()
 
     grid::Grid grid(windowWidth, windowHeight, cellSize);
 
-    movements::Movements controller(randomBlock, gridWidthInCells, gridHeightInCells, cellSize);
+    blocksController::BlocksController controller(randomBlock, gridWidthInCells, gridHeightInCells, cellSize);
 
     sf::Clock deltaClock;
 

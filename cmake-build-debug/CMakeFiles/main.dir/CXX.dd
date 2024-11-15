@@ -1,11 +1,11 @@
 ninja_dyndep_version = 1.0
-build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/movements.pcm
+build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/blocksController.pcm
 
 build CMakeFiles/main.dir/src/game/grid.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm
 
 build CMakeFiles/main.dir/src/game/blocks.cpp.obj: dyndep | CMakeFiles/main.dir/blocks.pcm
 
-build CMakeFiles/main.dir/src/game/movements.cpp.obj: dyndep | CMakeFiles/main.dir/movements.pcm
+build CMakeFiles/main.dir/src/game/blocksController.cpp.obj: dyndep | CMakeFiles/main.dir/blocksController.pcm
 
 build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/grid.pcm: dyndep
   restat = 1
@@ -13,6 +13,6 @@ build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/g
 build CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj | CMakeFiles/main.dir/blocks.pcm: dyndep
   restat = 1
 
-build CMakeFiles/main.dir/src/game/modules/movements.cppm.obj | CMakeFiles/main.dir/movements.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm
+build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm
   restat = 1
 

@@ -16,6 +16,16 @@
 			"type" : "CXX_MODULES",
 			"visibility" : "PUBLIC"
 		},
+		"CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "CXX_MODULES",
+			"relative-directory" : "src/game/modules",
+			"source" : "C:/Esimed admin/C++/TetrisC/src/game/modules/blocksController.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		},
 		"CMakeFiles/main.dir/src/game/modules/grid.cppm.obj" : 
 		{
 			"bmi-only" : false,
@@ -23,16 +33,6 @@
 			"name" : "CXX_MODULES",
 			"relative-directory" : "src/game/modules",
 			"source" : "C:/Esimed admin/C++/TetrisC/src/game/modules/grid.cppm",
-			"type" : "CXX_MODULES",
-			"visibility" : "PUBLIC"
-		},
-		"CMakeFiles/main.dir/src/game/modules/movements.cppm.obj" : 
-		{
-			"bmi-only" : false,
-			"destination" : null,
-			"name" : "CXX_MODULES",
-			"relative-directory" : "src/game/modules",
-			"source" : "C:/Esimed admin/C++/TetrisC/src/game/modules/movements.cppm",
 			"type" : "CXX_MODULES",
 			"visibility" : "PUBLIC"
 		}

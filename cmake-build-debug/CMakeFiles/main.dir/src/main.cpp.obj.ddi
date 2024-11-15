@@ -11,7 +11,7 @@
           "logical-name": "blocks"
         },
         {
-          "logical-name": "movements"
+          "logical-name": "blocksController"
         }
       ]
     }

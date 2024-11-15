@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\blocksController.cpp.obj",
+      "requires": [
+        {
+          "logical-name": "blocksController"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}
