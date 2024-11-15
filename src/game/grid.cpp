@@ -1,5 +1,7 @@
 module;
+
 #include <SFML/Graphics.hpp>
+
 module grid;
 
 namespace grid {

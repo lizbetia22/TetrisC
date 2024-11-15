@@ -17,6 +17,7 @@ add_executable(
         main
         src/main.cpp
         src/game/grid.cpp
+        src/game/blocks.cpp
 )
 
 target_sources(
@@ -25,6 +26,7 @@ target_sources(
         FILE_SET CXX_MODULES
         FILES
         src/game/modules/grid.cppm
+        src/game/modules/blocks.cppm
 )
 
 target_link_libraries(main PRIVATE sfml-graphics)

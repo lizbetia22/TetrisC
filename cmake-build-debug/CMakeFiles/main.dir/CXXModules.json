@@ -1,6 +1,11 @@
 {
 	"modules" : 
 	{
+		"blocks" : 
+		{
+			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/blocks.pcm",
+			"is-private" : false
+		},
 		"grid" : 
 		{
 			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/grid.pcm",
@@ -9,6 +14,11 @@
 	},
 	"references" : 
 	{
+		"blocks" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/main.dir/blocks.pcm"
+		},
 		"grid" : 
 		{
 			"lookup-method" : "by-name",

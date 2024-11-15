@@ -6,6 +6,16 @@
 	"config" : "Debug",
 	"cxx-modules" : 
 	{
+		"CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "CXX_MODULES",
+			"relative-directory" : "src/game/modules",
+			"source" : "C:/Esimed admin/C++/TetrisC/src/game/modules/blocks.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		},
 		"CMakeFiles/main.dir/src/game/modules/grid.cppm.obj" : 
 		{
 			"bmi-only" : false,
