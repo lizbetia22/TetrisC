@@ -19,7 +19,7 @@ int main()
     window.setFramerateLimit(60);
 
     sf::Texture tileTexture;
-    if (!tileTexture.loadFromFile("C:/Esimed admin/C++/TetrisC/assets/tiles.png")) {
+    if (!tileTexture.loadFromFile("assets/tiles.png")) {
         throw std::runtime_error("Unable to load texture from file!");
     }
 
@@ -48,7 +48,6 @@ int main()
 
         window.clear();
         grid.draw(window);
-       // randomBlock.draw(window);
         controller.draw(window);
         window.display();
     }
