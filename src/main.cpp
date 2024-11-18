@@ -28,7 +28,7 @@ int main()
 
     grid::Grid grid(windowWidth, windowHeight, cellSize);
 
-    blocksController::BlocksController controller(randomBlock, gridWidthInCells, gridHeightInCells, cellSize);
+    blocksController::BlocksController controller(gridWidthInCells, gridHeightInCells, cellSize, tileTexture);
 
     sf::Clock deltaClock;
 
@@ -48,7 +48,8 @@ int main()
 
         window.clear();
         grid.draw(window);
-        randomBlock.draw(window);
+       // randomBlock.draw(window);
+        controller.draw(window);
         window.display();
     }
 

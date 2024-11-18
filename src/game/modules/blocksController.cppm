@@ -10,16 +10,20 @@ import blocks;
 export namespace blocksController {
     class BlocksController {
     public:
-        BlocksController(blocks::Blocks& blocks, int gridWidth, int gridHeight, int cellSize);
+        BlocksController(int gridWidth, int gridHeight, int cellSize, const sf::Texture& texture);
         ~BlocksController() = default;
 
         void handleInput() const;
         void update(float deltaTime);
-        bool canMove(int dx, int dy) const;
-        void lockBlock();
+        void draw(sf::RenderWindow& window) const;
 
     private:
-        blocks::Blocks& m_blocks;
+        bool canMove(int dx, int dy) const;
+        void lockBlock();
+        void createNewBlock();
+        std::unique_ptr<blocks::Blocks> m_activeBlock;
+        std::vector<std::unique_ptr<blocks::Blocks>> m_lockedBlocks;
+        const sf::Texture& m_texture;
         int m_gridWidth;
         int m_gridHeight;
         int m_cellSize;
