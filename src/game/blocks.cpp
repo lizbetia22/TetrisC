@@ -53,7 +53,7 @@ namespace blocks {
         setBlockColor(shapeType);
     }
 
-    void Blocks::setBlockColor(int shapeType) {
+    void Blocks::setBlockColor(int shapeType) const {
         sf::Color color = shapeColors[shapeType];
         for (auto& block : m_blocks) {
             block->setColor(color);
@@ -69,6 +69,37 @@ namespace blocks {
     void Blocks::move(const int dx, const int dy) const {
         for (auto& block : m_blocks) {
             block->move(dx * m_cellSize, dy * m_cellSize);
+        }
+    }
+
+    void Blocks::rotateShape() const {
+        auto currentPositions = getPositions();
+
+        sf::Vector2f center = currentPositions[1];
+
+        std::array<sf::Vector2f, 4> newPositions;
+        for (int i = 0; i < 4; ++i) {
+            float dx = currentPositions[i].x - center.x;
+            float dy = currentPositions[i].y - center.y;
+
+            newPositions[i].x = center.x - dy;
+            newPositions[i].y = center.y + dx;
+        }
+
+        setPositions(newPositions);
+    }
+
+    std::array<sf::Vector2f, 4> Blocks::getPositions() const {
+        std::array<sf::Vector2f, 4> positions;
+        for (int i = 0; i < 4; ++i) {
+            positions[i] = m_blocks[i]->getPosition();
+        }
+        return positions;
+    }
+
+    void Blocks::setPositions(const std::array<sf::Vector2f, 4>& newPositions) const {
+        for (int i = 0; i < 4; ++i) {
+            m_blocks[i]->setPosition(newPositions[i]);
         }
     }
 

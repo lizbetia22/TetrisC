@@ -16,6 +16,7 @@ export namespace blocksController {
         void handleInput() const;
         void update(float deltaTime);
         void draw(sf::RenderWindow& window) const;
+        bool canRotate() const;
 
     private:
         bool canMove(int dx, int dy) const;

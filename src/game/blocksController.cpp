@@ -41,6 +41,35 @@ namespace blocksController {
         return true;
     }
 
+    bool BlocksController::canRotate() const {
+         if (!m_activeBlock) return false;
+
+         auto currentPositions = m_activeBlock->getPositions();
+
+         sf::Vector2f center = currentPositions[1];
+
+         for (int i = 0; i < 4; ++i) {
+             float dx = currentPositions[i].x - center.x;
+             float dy = currentPositions[i].y - center.y;
+
+             sf::Vector2f rotatedPos(
+                 center.x - dy,
+                 center.y + dx
+             );
+
+             int gridX = static_cast<int>(rotatedPos.x / m_cellSize);
+             int gridY = static_cast<int>(rotatedPos.y / m_cellSize);
+
+             if (gridX < 0 || gridX >= m_gridWidth ||
+                 gridY >= m_gridHeight || gridY < 0 ||
+                 (gridY >= 0 && m_occupiedCells[gridY][gridX] == 1)) {
+                 return false;
+                 }
+         }
+
+         return true;
+     }
+
     void BlocksController::lockBlock() {
         if (!m_activeBlock) return;
 
@@ -80,6 +109,12 @@ namespace blocksController {
                 sf::sleep(sf::milliseconds(150));
             }
         }
+         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+             if (canRotate()) {
+                 m_activeBlock->rotateShape();
+                 sf::sleep(sf::milliseconds(150));
+             }
+         }
     }
 
     void BlocksController::update(float deltaTime) {

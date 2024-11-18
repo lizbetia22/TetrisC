@@ -17,15 +17,18 @@ export namespace blocks {
 
         void draw(sf::RenderWindow& window) const;
         void move(int dx, int dy) const;
+        void rotateShape() const;
 
         [[nodiscard]] const std::array<std::unique_ptr<sf::Sprite>, 4>& getBlocks() const;
+        [[nodiscard]] std::array<sf::Vector2f, 4> getPositions() const;
+        void setPositions(const std::array<sf::Vector2f, 4>& newPositions) const;
 
     private:
         int m_cellSize;
         std::array<std::unique_ptr<sf::Sprite>, 4> m_blocks;
 
         void initializeBlocks(const sf::Texture& texture, int tileIndex);
-        void setBlockColor(int shapeType);
+        void setBlockColor(int shapeType) const;
         std::array<std::pair<int, int>, 4> m_shape;
     };
 }
