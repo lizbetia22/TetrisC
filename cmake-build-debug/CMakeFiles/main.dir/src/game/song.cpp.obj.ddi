@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\song.cpp.obj",
+      "requires": [
+        {
+          "logical-name": "song"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

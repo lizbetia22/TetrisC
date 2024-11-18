@@ -19,6 +19,7 @@ add_executable(
         src/game/grid.cpp
         src/game/blocks.cpp
         src/game/blocksController.cpp
+        src/game/song.cpp
 )
 
 target_sources(
@@ -29,9 +30,11 @@ target_sources(
         src/game/modules/grid.cppm
         src/game/modules/blocks.cppm
         src/game/modules/blocksController.cppm
+        src/game/modules/song.cppm
 )
 
 target_link_libraries(main PRIVATE sfml-graphics)
+target_link_libraries(main PRIVATE sfml-graphics sfml-audio)
 target_compile_features(main PRIVATE cxx_std_23)
 
 if(WIN32)

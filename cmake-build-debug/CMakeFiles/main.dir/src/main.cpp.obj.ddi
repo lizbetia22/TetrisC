@@ -12,6 +12,9 @@
         },
         {
           "logical-name": "blocksController"
+        },
+        {
+          "logical-name": "song"
         }
       ]
     }

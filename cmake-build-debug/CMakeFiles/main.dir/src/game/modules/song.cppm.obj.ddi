@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\modules\\song.cppm.obj",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "song",
+          "source-path": "C:/Esimed admin/C++/TetrisC/src/game/modules/song.cppm"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

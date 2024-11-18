@@ -5,6 +5,7 @@
 import grid;
 import blocks;
 import blocksController;
+import song;
 
 int main()
 {
@@ -18,8 +19,16 @@ int main()
     sf::RenderWindow window({windowWidth, windowHeight}, "Tetris");
     window.setFramerateLimit(60);
 
+    song::SongPlayer songPlayer;
+    try {
+        songPlayer.loadAndPlay("assets/songs/tetris_classic_song.wav");
+        songPlayer.setVolume(50.0f);
+    } catch (const std::runtime_error& e) {
+        throw std::runtime_error("Unable to load song from file!");
+    }
+
     sf::Texture tileTexture;
-    if (!tileTexture.loadFromFile("assets/tiles.png")) {
+    if (!tileTexture.loadFromFile("assets/images/tiles.png")) {
         throw std::runtime_error("Unable to load texture from file!");
     }
 
@@ -36,8 +45,10 @@ int main()
     {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
+                songPlayer.stop();
                 window.close();
+            }
         }
 
         float deltaTime = deltaClock.restart().asSeconds();

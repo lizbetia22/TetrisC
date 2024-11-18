@@ -15,6 +15,11 @@
 		{
 			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/grid.pcm",
 			"is-private" : false
+		},
+		"song" : 
+		{
+			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/song.pcm",
+			"is-private" : false
 		}
 	},
 	"references" : 
@@ -33,6 +38,11 @@
 		{
 			"lookup-method" : "by-name",
 			"path" : "CMakeFiles/main.dir/grid.pcm"
+		},
+		"song" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/main.dir/song.pcm"
 		}
 	},
 	"usages" : 
