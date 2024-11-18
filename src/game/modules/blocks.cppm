@@ -26,9 +26,7 @@ export namespace blocks {
     private:
         int m_cellSize;
         std::array<std::unique_ptr<sf::Sprite>, 4> m_blocks;
-
         void initializeBlocks(const sf::Texture& texture, int tileIndex);
-        void setBlockColor(int shapeType) const;
         std::array<std::pair<int, int>, 4> m_shape;
     };
 }

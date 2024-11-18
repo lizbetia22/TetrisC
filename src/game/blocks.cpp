@@ -20,16 +20,6 @@ namespace blocks {
         {{ {1, 0}, {2, 0}, {0, 1}, {1, 1} }}  // Forme Z
     };
 
-    const std::vector<sf::Color> shapeColors = {
-        sf::Color::Cyan,  // I
-        sf::Color::Yellow, // O
-        sf::Color::Blue,   // L
-        sf::Color::Red,    // J
-        sf::Color::Magenta, // T
-        sf::Color::Green,  // S
-        sf::Color::White   // Z
-    };
-
     Blocks::Blocks(const int cellSize, const sf::Texture& texture, const int tileIndex)
          : m_cellSize(cellSize), m_blocks{}
     {
@@ -39,24 +29,18 @@ namespace blocks {
     void Blocks::initializeBlocks(const sf::Texture& texture, int shapeType) {
         m_shape = shapes[shapeType];
 
+        const int tileSize = 512;
+        const int tileX = shapeType * tileSize;
+
         for (int i = 0; i < 4; ++i) {
             m_blocks[i] = std::make_unique<sf::Sprite>();
             m_blocks[i]->setTexture(texture);
-            m_blocks[i]->setTextureRect(sf::IntRect(0, 0, 512, 512)); // Ajustez si nécessaire
+            m_blocks[i]->setTextureRect(sf::IntRect(tileX, 0, tileSize, tileSize));
             m_blocks[i]->setPosition(m_shape[i].first * m_cellSize, m_shape[i].second * m_cellSize);
             m_blocks[i]->setScale(
-                static_cast<float>(m_cellSize) / 512.f,
-                static_cast<float>(m_cellSize) / 512.f
+                static_cast<float>(m_cellSize) / static_cast<float>(tileSize),
+                static_cast<float>(m_cellSize) / static_cast<float>(tileSize)
             );
-        }
-
-        setBlockColor(shapeType);
-    }
-
-    void Blocks::setBlockColor(int shapeType) const {
-        sf::Color color = shapeColors[shapeType];
-        for (auto& block : m_blocks) {
-            block->setColor(color);
         }
     }
 
