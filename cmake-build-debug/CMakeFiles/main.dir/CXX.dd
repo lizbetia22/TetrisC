@@ -15,7 +15,7 @@ build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/g
 build CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj | CMakeFiles/main.dir/blocks.pcm: dyndep
   restat = 1
 
-build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm
+build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/song.pcm
   restat = 1
 
 build CMakeFiles/main.dir/src/game/modules/song.cppm.obj | CMakeFiles/main.dir/song.pcm: dyndep

@@ -8,15 +8,19 @@ export namespace song {
     public:
         SongPlayer();
 
-        void loadAndPlay(const std::string& filename);
+        void loadBackgroundMusic(const std::string& filename);
+        void playCollisionSound(const std::string& filename);
         void stop();
         void pause();
         void resume();
-        void setVolume(float volume);
+        void setBackgroundVolume(float volume);
+        void setCollisionSoundVolume(float volume);
 
        ~SongPlayer();
 
     private:
-        sf::Music music;
+        sf::Music backgroundMusic;
+        sf::SoundBuffer soundBuffer;
+        sf::Sound collisionSound;
     };
 };

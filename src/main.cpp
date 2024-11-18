@@ -21,8 +21,8 @@ int main()
 
     song::SongPlayer songPlayer;
     try {
-        songPlayer.loadAndPlay("assets/songs/tetris_classic_song.wav");
-        songPlayer.setVolume(50.0f);
+        songPlayer.loadBackgroundMusic("assets/songs/tetris_classic_song.wav");
+        songPlayer.setBackgroundVolume(50.0f);
     } catch (const std::runtime_error& e) {
         throw std::runtime_error("Unable to load song from file!");
     }
@@ -37,7 +37,7 @@ int main()
 
     grid::Grid grid(windowWidth, windowHeight, cellSize);
 
-    blocksController::BlocksController controller(gridWidthInCells, gridHeightInCells, cellSize, tileTexture);
+    blocksController::BlocksController controller(gridWidthInCells, gridHeightInCells, cellSize, tileTexture, songPlayer);
 
     sf::Clock deltaClock;
 

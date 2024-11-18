@@ -13,6 +13,9 @@
       "requires": [
         {
           "logical-name": "blocks"
+        },
+        {
+          "logical-name": "song"
         }
       ]
     }

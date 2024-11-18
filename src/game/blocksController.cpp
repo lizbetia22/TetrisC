@@ -7,13 +7,19 @@ module;
 module blocksController;
 
 namespace blocksController {
-     BlocksController::BlocksController(const int gridWidth, const int gridHeight, const int cellSize, const sf::Texture& texture)
-        : m_gridWidth(gridWidth)
-        , m_gridHeight(gridHeight)
-        , m_cellSize(cellSize)
-        , m_texture(texture)
-        , m_moveClock(std::make_unique<sf::Clock>())
-        , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
+    BlocksController::BlocksController(
+   const int gridWidth,
+   const int gridHeight,
+   const int cellSize,
+   const sf::Texture& texture,
+   song::SongPlayer& songPlayer)
+   : m_gridWidth(gridWidth)
+   , m_gridHeight(gridHeight)
+   , m_cellSize(cellSize)
+   , m_texture(texture)
+   , m_songPlayer(songPlayer)
+   , m_moveClock(std::make_unique<sf::Clock>())
+   , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
     {
         createNewBlock();
     }
@@ -72,6 +78,9 @@ namespace blocksController {
 
     void BlocksController::lockBlock() {
         if (!m_activeBlock) return;
+
+        m_songPlayer.playCollisionSound("assets/songs/click_sound.wav");
+        m_songPlayer.setCollisionSoundVolume(100.0f);
 
         for (const auto& block : m_activeBlock->getBlocks()) {
             const sf::Vector2f position = block->getPosition();

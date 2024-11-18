@@ -6,11 +6,12 @@ module;
 
 export module blocksController;
 import blocks;
+import song;
 
 export namespace blocksController {
     class BlocksController {
     public:
-        BlocksController(int gridWidth, int gridHeight, int cellSize, const sf::Texture& texture);
+        BlocksController(int gridWidth, int gridHeight, int cellSize, const sf::Texture& texture, song::SongPlayer& songPlayer);
         ~BlocksController() = default;
 
         void handleInput() const;
@@ -30,5 +31,6 @@ export namespace blocksController {
         int m_cellSize;
         std::unique_ptr<sf::Clock> m_moveClock;
         std::vector<std::vector<int>> m_occupiedCells;
+        song::SongPlayer& m_songPlayer;
     };
 }

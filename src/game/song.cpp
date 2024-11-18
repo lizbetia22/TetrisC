@@ -6,34 +6,45 @@ module;
 module song;
 namespace song {
 
-    SongPlayer::SongPlayer() : music() {}
+    SongPlayer::SongPlayer() : backgroundMusic(), soundBuffer(), collisionSound() {}
 
-    void SongPlayer::loadAndPlay(const std::string& filename) {
-        if (!music.openFromFile(filename)) {
-            throw std::runtime_error("Unable to load music file: " + filename);
+    void SongPlayer::loadBackgroundMusic(const std::string& filename) {
+        if (!backgroundMusic.openFromFile(filename)) {
+            throw std::runtime_error("Unable to load background music file: " + filename);
         }
-        music.setLoop(true);
-        music.play();
+        backgroundMusic.setLoop(true);
+        backgroundMusic.play();
+    }
+
+    void SongPlayer::playCollisionSound(const std::string& filename) {
+        if (!soundBuffer.loadFromFile(filename)) {
+            throw std::runtime_error("Unable to load collision sound file: " + filename);
+        }
+        collisionSound.setBuffer(soundBuffer);
+        collisionSound.play();
     }
 
     void SongPlayer::stop() {
-        music.stop();
+        backgroundMusic.stop();
     }
 
     void SongPlayer::pause() {
-        music.pause();
+        backgroundMusic.pause();
     }
 
     void SongPlayer::resume() {
-        music.play();
+        backgroundMusic.play();
     }
 
-    void SongPlayer::setVolume(float volume) {
-        music.setVolume(volume);
+    void SongPlayer::setBackgroundVolume(float volume) {
+        backgroundMusic.setVolume(volume);
+    }
+
+    void SongPlayer::setCollisionSoundVolume(float volume) {
+        collisionSound.setVolume(volume);
     }
 
     SongPlayer::~SongPlayer() {
         stop();
     }
-
 }
