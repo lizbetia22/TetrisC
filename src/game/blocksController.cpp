@@ -3,6 +3,8 @@ module;
 #include <SFML/Graphics.hpp>
 #include <array>
 #include <memory>
+#include <iostream>
+
 
 module blocksController;
 
@@ -12,7 +14,7 @@ namespace blocksController {
    const int gridHeight,
    const int cellSize,
    const sf::Texture& texture,
-   song::SongPlayer& songPlayer)
+   songController::SongPlayer& songPlayer)
    : m_gridWidth(gridWidth)
    , m_gridHeight(gridHeight)
    , m_cellSize(cellSize)
@@ -97,6 +99,112 @@ namespace blocksController {
         createNewBlock();
     }
 
+void BlocksController::checkAndClearLines() {
+    std::vector<int> linesToClear;
+
+    for (int y = m_gridHeight - 1; y >= 0; --y) {
+        bool lineIsFull = true;
+        for (int x = 0; x < m_gridWidth; ++x) {
+            if (m_occupiedCells[y][x] == 0) {
+                lineIsFull = false;
+                break;
+            }
+        }
+        if (lineIsFull) {
+            linesToClear.push_back(y);
+        }
+    }
+
+    if (linesToClear.empty()) return;
+    auto it = m_lockedBlocks.begin();
+    while (it != m_lockedBlocks.end()) {
+        auto positions = (*it)->getPositions();
+        bool hasBlocksInClearedLines = false;
+        bool shouldRemoveBlock = true;
+
+        for (const auto& pos : positions) {
+            int blockY = static_cast<int>(pos.y / m_cellSize);
+            if (std::find(linesToClear.begin(), linesToClear.end(), blockY) != linesToClear.end()) {
+                hasBlocksInClearedLines = true;
+            } else {
+                shouldRemoveBlock = false;
+            }
+        }
+
+        if (hasBlocksInClearedLines) {
+            if (shouldRemoveBlock) {
+                it = m_lockedBlocks.erase(it);
+                continue;
+            } else {
+                std::vector<sf::Vector2f> remainingPositions;
+                auto currentPositions = (*it)->getPositions();
+
+                for (const auto& pos : currentPositions) {
+                    int blockY = static_cast<int>(pos.y / m_cellSize);
+                    if (std::find(linesToClear.begin(), linesToClear.end(), blockY) == linesToClear.end()) {
+                        remainingPositions.push_back(pos);
+                    }
+                }
+
+                if (!remainingPositions.empty()) {
+                    std::array<sf::Vector2f, 4> newPositions;
+                    for (size_t i = 0; i < 4; ++i) {
+                        newPositions[i] = i < remainingPositions.size() ? remainingPositions[i] : remainingPositions.back();
+                    }
+                    (*it)->setPositions(newPositions);
+                }
+            }
+        }
+        ++it;
+    }
+    int dropDistance = 0;
+    for (auto& block : m_lockedBlocks) {
+        auto positions = block->getPositions();
+        bool shouldMove = false;
+        int minDropDistance = m_gridHeight;
+
+        for (const auto& pos : positions) {
+            int blockY = static_cast<int>(pos.y / m_cellSize);
+            dropDistance = 0;
+
+            for (int clearedY : linesToClear) {
+                if (blockY < clearedY) {
+                    dropDistance++;
+                }
+            }
+
+            if (dropDistance > 0) {
+                shouldMove = true;
+                minDropDistance = std::min(minDropDistance, dropDistance);
+            }
+        }
+
+        if (shouldMove) {
+            std::array<sf::Vector2f, 4> newPositions;
+            for (size_t i = 0; i < positions.size(); ++i) {
+                newPositions[i] = positions[i];
+                newPositions[i].y += minDropDistance * m_cellSize;
+            }
+            block->setPositions(newPositions);
+        }
+    }
+
+    for (int clearedY : linesToClear) {
+        for (int y = clearedY; y > 0; --y) {
+            for (int x = 0; x < m_gridWidth; ++x) {
+                m_occupiedCells[y][x] = m_occupiedCells[y - 1][x];
+            }
+        }
+        for (int x = 0; x < m_gridWidth; ++x) {
+            m_occupiedCells[0][x] = 0;
+        }
+    }
+
+    for (size_t i = 0; i < linesToClear.size(); ++i) {
+        m_songPlayer.playCollisionSound("assets/songs/pop_sound.wav");
+    }
+}
+
     void BlocksController::handleInput() const {
         if (!m_activeBlock) return;
 
@@ -134,6 +242,7 @@ namespace blocksController {
                 m_activeBlock->move(0, 1);
             } else {
                 lockBlock();
+                checkAndClearLines();
             }
             m_moveClock->restart();
         }

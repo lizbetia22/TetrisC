@@ -6,18 +6,19 @@ module;
 
 export module blocksController;
 import blocks;
-import song;
+import songController;
 
 export namespace blocksController {
     class BlocksController {
     public:
-        BlocksController(int gridWidth, int gridHeight, int cellSize, const sf::Texture& texture, song::SongPlayer& songPlayer);
+        BlocksController(int gridWidth, int gridHeight, int cellSize, const sf::Texture& texture, songController::SongPlayer& songPlayer);
         ~BlocksController() = default;
 
         void handleInput() const;
         void update(float deltaTime);
         void draw(sf::RenderWindow& window) const;
         bool canRotate() const;
+        void checkAndClearLines();
 
     private:
         bool canMove(int dx, int dy) const;
@@ -31,6 +32,6 @@ export namespace blocksController {
         int m_cellSize;
         std::unique_ptr<sf::Clock> m_moveClock;
         std::vector<std::vector<int>> m_occupiedCells;
-        song::SongPlayer& m_songPlayer;
+        songController::SongPlayer& m_songPlayer;
     };
 }

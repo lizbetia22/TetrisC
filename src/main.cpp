@@ -5,7 +5,7 @@
 import grid;
 import blocks;
 import blocksController;
-import song;
+import songController;
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
     sf::RenderWindow window({windowWidth, windowHeight}, "Tetris");
     window.setFramerateLimit(60);
 
-    song::SongPlayer songPlayer;
+    songController::SongPlayer songPlayer;
     try {
         songPlayer.loadBackgroundMusic("assets/songs/tetris_classic_song.wav");
         songPlayer.setBackgroundVolume(50.0f);

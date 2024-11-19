@@ -15,7 +15,7 @@
           "logical-name": "blocks"
         },
         {
-          "logical-name": "song"
+          "logical-name": "songController"
         }
       ]
     }

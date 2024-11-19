@@ -1,5 +1,5 @@
 ninja_dyndep_version = 1.0
-build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/blocksController.pcm CMakeFiles/main.dir/song.pcm
+build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/blocksController.pcm CMakeFiles/main.dir/songController.pcm
 
 build CMakeFiles/main.dir/src/game/grid.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm
 
@@ -7,7 +7,7 @@ build CMakeFiles/main.dir/src/game/blocks.cpp.obj: dyndep | CMakeFiles/main.dir/
 
 build CMakeFiles/main.dir/src/game/blocksController.cpp.obj: dyndep | CMakeFiles/main.dir/blocksController.pcm
 
-build CMakeFiles/main.dir/src/game/song.cpp.obj: dyndep | CMakeFiles/main.dir/song.pcm
+build CMakeFiles/main.dir/src/game/songController.cpp.obj: dyndep | CMakeFiles/main.dir/songController.pcm
 
 build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/grid.pcm: dyndep
   restat = 1
@@ -15,9 +15,9 @@ build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/g
 build CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj | CMakeFiles/main.dir/blocks.pcm: dyndep
   restat = 1
 
-build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/song.pcm
+build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/songController.pcm
   restat = 1
 
-build CMakeFiles/main.dir/src/game/modules/song.cppm.obj | CMakeFiles/main.dir/song.pcm: dyndep
+build CMakeFiles/main.dir/src/game/modules/songController.cppm.obj | CMakeFiles/main.dir/songController.pcm: dyndep
   restat = 1
 
