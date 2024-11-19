@@ -1,9 +1,11 @@
 module;
+
 #include <SFML/Audio.hpp>
 #include <stdexcept>
 #include <string>
 
 module songController;
+
 namespace songController {
 
     SongPlayer::SongPlayer() : backgroundMusic(), soundBuffer(), collisionSound() {}

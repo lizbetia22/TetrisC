@@ -99,7 +99,7 @@ namespace blocksController {
         createNewBlock();
     }
 
-void BlocksController::checkAndClearLines() {
+    int BlocksController::checkAndClearLines() {
     std::vector<int> linesToClear;
 
     for (int y = m_gridHeight - 1; y >= 0; --y) {
@@ -114,8 +114,7 @@ void BlocksController::checkAndClearLines() {
             linesToClear.push_back(y);
         }
     }
-
-    if (linesToClear.empty()) return;
+    if (linesToClear.empty()) return 0;
     auto it = m_lockedBlocks.begin();
     while (it != m_lockedBlocks.end()) {
         auto positions = (*it)->getPositions();
@@ -130,7 +129,6 @@ void BlocksController::checkAndClearLines() {
                 shouldRemoveBlock = false;
             }
         }
-
         if (hasBlocksInClearedLines) {
             if (shouldRemoveBlock) {
                 it = m_lockedBlocks.erase(it);
@@ -203,7 +201,14 @@ void BlocksController::checkAndClearLines() {
     for (size_t i = 0; i < linesToClear.size(); ++i) {
         m_songPlayer.playCollisionSound("assets/songs/pop_sound.wav");
     }
+        return linesToClear.size();
 }
+
+    void BlocksController::resetGame() {
+        m_lockedBlocks.clear();
+        m_occupiedCells = std::vector<std::vector<int>>(m_gridHeight, std::vector<int>(m_gridWidth, 0));
+        createNewBlock();
+    }
 
     void BlocksController::handleInput() const {
         if (!m_activeBlock) return;
@@ -242,7 +247,7 @@ void BlocksController::checkAndClearLines() {
                 m_activeBlock->move(0, 1);
             } else {
                 lockBlock();
-                checkAndClearLines();
+              //  checkAndClearLines();
             }
             m_moveClock->restart();
         }

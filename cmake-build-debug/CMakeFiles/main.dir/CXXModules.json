@@ -16,6 +16,11 @@
 			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/grid.pcm",
 			"is-private" : false
 		},
+		"sidebar" : 
+		{
+			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/sidebar.pcm",
+			"is-private" : false
+		},
 		"songController" : 
 		{
 			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/songController.pcm",
@@ -38,6 +43,11 @@
 		{
 			"lookup-method" : "by-name",
 			"path" : "CMakeFiles/main.dir/grid.pcm"
+		},
+		"sidebar" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/main.dir/sidebar.pcm"
 		},
 		"songController" : 
 		{

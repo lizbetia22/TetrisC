@@ -36,6 +36,16 @@
 			"type" : "CXX_MODULES",
 			"visibility" : "PUBLIC"
 		},
+		"CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj" : 
+		{
+			"bmi-only" : false,
+			"destination" : null,
+			"name" : "CXX_MODULES",
+			"relative-directory" : "src/game/modules",
+			"source" : "C:/Esimed admin/C++/TetrisC/src/game/modules/sidebar.cppm",
+			"type" : "CXX_MODULES",
+			"visibility" : "PUBLIC"
+		},
 		"CMakeFiles/main.dir/src/game/modules/songController.cppm.obj" : 
 		{
 			"bmi-only" : false,

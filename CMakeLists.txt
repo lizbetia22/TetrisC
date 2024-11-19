@@ -20,6 +20,7 @@ add_executable(
         src/game/blocks.cpp
         src/game/blocksController.cpp
         src/game/songController.cpp
+        src/game/sidebar.cpp
 )
 
 target_sources(
@@ -31,6 +32,7 @@ target_sources(
         src/game/modules/blocks.cppm
         src/game/modules/blocksController.cppm
         src/game/modules/songController.cppm
+        src/game/modules/sidebar.cppm
 )
 
 target_link_libraries(main PRIVATE sfml-graphics)

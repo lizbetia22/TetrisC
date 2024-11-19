@@ -18,7 +18,8 @@ export namespace blocksController {
         void update(float deltaTime);
         void draw(sf::RenderWindow& window) const;
         bool canRotate() const;
-        void checkAndClearLines();
+        int checkAndClearLines();
+        void resetGame();
 
     private:
         bool canMove(int dx, int dy) const;

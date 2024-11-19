@@ -11,6 +11,9 @@
           "logical-name": "blocks"
         },
         {
+          "logical-name": "sidebar"
+        },
+        {
           "logical-name": "blocksController"
         },
         {

@@ -1,22 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <stdexcept>
-#include <cstdlib>
 
 import grid;
 import blocks;
+import sidebar;
 import blocksController;
 import songController;
 
 int main()
 {
-    constexpr int windowWidth = 600;
-    constexpr int windowHeight = 900;
     constexpr int cellSize = 60;
+    constexpr int gridWidth = 10;
+    constexpr int gridHeight = 15;
 
-    constexpr int gridWidthInCells = windowWidth / cellSize;
-    constexpr int gridHeightInCells = windowHeight / cellSize;
+    constexpr int windowWidth = gridWidth * cellSize;
+    constexpr int windowHeight = gridHeight * cellSize;
+    constexpr int sidebarWidth = 200;
 
-    sf::RenderWindow window({windowWidth, windowHeight}, "Tetris");
+    sf::RenderWindow window({windowWidth + sidebarWidth, windowHeight}, "Tetris");
     window.setFramerateLimit(60);
 
     songController::SongPlayer songPlayer;
@@ -32,14 +33,18 @@ int main()
         throw std::runtime_error("Unable to load texture from file!");
     }
 
-    int shapeType = std::rand() % 7;
-    blocks::Blocks randomBlock(cellSize, tileTexture, shapeType);
-
     grid::Grid grid(windowWidth, windowHeight, cellSize);
+    sidebar::Sidebar sidebar(windowWidth + sidebarWidth, windowHeight, gridWidth);
 
-    blocksController::BlocksController controller(gridWidthInCells, gridHeightInCells, cellSize, tileTexture, songPlayer);
+    blocksController::BlocksController controller(gridWidth, gridHeight, cellSize, tileTexture, songPlayer);
+
+    sf::RectangleShape pauseOverlay;
+    pauseOverlay.setSize(sf::Vector2f(windowWidth, windowHeight));
+    pauseOverlay.setFillColor(sf::Color(150, 150, 150, 150));
 
     sf::Clock deltaClock;
+    int score = 0;
+    bool isPaused = false;
 
     while (window.isOpen())
     {
@@ -49,17 +54,47 @@ int main()
                 songPlayer.stop();
                 window.close();
             }
+
+            if (event.type == sf::Event::MouseButtonPressed) {
+                sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+
+                if (sidebar.isPauseClicked(mousePos)) {
+                    isPaused = !isPaused;
+                }
+
+                if (sidebar.isRestartClicked(mousePos)) {
+                    score = 0;
+                    sidebar.updateScore(score);
+                    controller.resetGame();
+                }
+
+                if (sidebar.isCloseClicked(mousePos)) {
+                    songPlayer.stop();
+                    window.close();
+                }
+            }
         }
 
-        float deltaTime = deltaClock.restart().asSeconds();
+        if (!isPaused) {
+            float deltaTime = deltaClock.restart().asSeconds();
 
-        controller.handleInput();
+            controller.handleInput();
+            controller.update(deltaTime);
 
-        controller.update(deltaTime);
+            int linesCleared = controller.checkAndClearLines();
+            if (linesCleared > 0) {
+                score += linesCleared * 10;
+                sidebar.updateScore(score);
+            }
+        }
 
         window.clear();
         grid.draw(window);
         controller.draw(window);
+        sidebar.draw(window);
+        if (isPaused) {
+            window.draw(pauseOverlay);
+        }
         window.display();
     }
 

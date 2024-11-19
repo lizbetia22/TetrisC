@@ -1,0 +1,16 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\modules\\sidebar.cppm.obj",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "sidebar",
+          "source-path": "C:/Esimed admin/C++/TetrisC/src/game/modules/sidebar.cppm"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

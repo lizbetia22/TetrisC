@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\sidebar.cpp.obj",
+      "requires": [
+        {
+          "logical-name": "sidebar"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}
