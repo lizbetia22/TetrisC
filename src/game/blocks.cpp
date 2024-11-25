@@ -21,11 +21,12 @@ namespace blocks {
     };
 
     Blocks::Blocks(const int cellSize, const sf::Texture& texture, const int tileIndex)
-         : m_cellSize(cellSize), m_blocks{}
+    : m_cellSize(cellSize)
+    , m_texture(texture)
+    , m_blocks{}
     {
         initializeBlocks(texture, tileIndex);
     }
-
     void Blocks::initializeBlocks(const sf::Texture& texture, int shapeType) {
         m_shape = shapes[shapeType];
 
@@ -89,5 +90,18 @@ namespace blocks {
 
     const std::array<std::unique_ptr<sf::Sprite>, 4>& Blocks::getBlocks() const {
         return m_blocks;
+    }
+
+    std::unique_ptr<Blocks> Blocks::clone() const {
+        auto newBlock = std::make_unique<Blocks>(m_cellSize, m_texture, 0);
+
+        for (int i = 0; i < 4; ++i) {
+            newBlock->m_blocks[i]->setPosition(m_blocks[i]->getPosition());
+            newBlock->m_blocks[i]->setTextureRect(m_blocks[i]->getTextureRect());
+            newBlock->m_blocks[i]->setScale(m_blocks[i]->getScale());
+        }
+
+        newBlock->m_shape = m_shape;
+        return newBlock;
     }
 }

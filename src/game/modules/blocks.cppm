@@ -12,6 +12,8 @@ export namespace blocks {
         Blocks(int cellSize, const sf::Texture& texture, int tileIndex);
         ~Blocks() = default;
 
+        [[nodiscard]] std::unique_ptr<Blocks> clone() const;
+
         Blocks(const Blocks&) = delete;
         Blocks& operator=(const Blocks&) = delete;
 
@@ -24,6 +26,7 @@ export namespace blocks {
         void setPositions(const std::array<sf::Vector2f, 4>& newPositions) const;
 
     private:
+        const sf::Texture& m_texture;
         int m_cellSize;
         std::array<std::unique_ptr<sf::Sprite>, 4> m_blocks;
         void initializeBlocks(const sf::Texture& texture, int tileIndex);

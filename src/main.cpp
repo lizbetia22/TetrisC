@@ -15,7 +15,7 @@ int main()
 
     constexpr int windowWidth = gridWidth * cellSize;
     constexpr int windowHeight = gridHeight * cellSize;
-    constexpr int sidebarWidth = 200;
+    constexpr int sidebarWidth = 300;
 
     sf::RenderWindow window({windowWidth + sidebarWidth, windowHeight}, "Tetris");
     window.setFramerateLimit(60);
@@ -85,6 +85,9 @@ int main()
             if (linesCleared > 0) {
                 score += linesCleared * 10;
                 sidebar.updateScore(score);
+            }
+            if (auto nextBlock = controller.getNextBlock()) {
+                sidebar.updateNextBlock(std::move(nextBlock));
             }
         }
 

@@ -61,6 +61,10 @@
 		[
 			"blocks",
 			"songController"
+		],
+		"sidebar" : 
+		[
+			"blocks"
 		]
 	}
 }

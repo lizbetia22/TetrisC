@@ -23,6 +23,6 @@ build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFile
 build CMakeFiles/main.dir/src/game/modules/songController.cppm.obj | CMakeFiles/main.dir/songController.pcm: dyndep
   restat = 1
 
-build CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj | CMakeFiles/main.dir/sidebar.pcm: dyndep
+build CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj | CMakeFiles/main.dir/sidebar.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm
   restat = 1
 

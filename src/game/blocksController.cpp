@@ -24,11 +24,24 @@ namespace blocksController {
    , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
     {
         createNewBlock();
+        m_nextBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, std::rand() % 7);
     }
 
     void BlocksController::createNewBlock() {
-        int shapeType = std::rand() % 7;
-        m_activeBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, shapeType);
+        if (m_nextBlock) {
+            m_activeBlock = std::move(m_nextBlock);
+        } else {
+            int shapeType = std::rand() % 7;
+            m_activeBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, shapeType);
+        }
+
+        int nextShapeType = std::rand() % 7;
+        m_nextBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, nextShapeType);
+    }
+
+    std::unique_ptr<blocks::Blocks> BlocksController::getNextBlock() const {
+        if (!m_nextBlock) return nullptr;
+        return m_nextBlock->clone();
     }
 
     bool BlocksController::canMove(const int dx, const int dy) const {

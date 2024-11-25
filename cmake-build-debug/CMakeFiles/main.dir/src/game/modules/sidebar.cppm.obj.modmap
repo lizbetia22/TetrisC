@@ -1,2 +1,3 @@
 -x c++-module
 -fmodule-output=CMakeFiles/main.dir/sidebar.pcm
+-fmodule-file=blocks=CMakeFiles/main.dir/blocks.pcm
