@@ -7,7 +7,7 @@ module sidebar;
 
 namespace sidebar {
    Sidebar::Sidebar(int windowWidth, int windowHeight, int gridWidth) : m_score(0) {
-    if (!m_font.loadFromFile("assets/fonts/ASMAN.ttf")) {
+    if (!m_font.loadFromFile("assets/fonts/stocky.ttf")) {
         throw std::runtime_error("Could not load font");
     }
 
@@ -77,7 +77,7 @@ namespace sidebar {
 
     m_gameOverText.setFont(m_font);
     m_gameOverText.setString("GAME OVER");
-    m_gameOverText.setCharacterSize(50);
+    m_gameOverText.setCharacterSize(40);
     m_gameOverText.setFillColor(sf::Color::Red);
     m_gameOverText.setPosition(
         gridWidth * 60 + (300 - m_gameOverText.getLocalBounds().width) / 2,

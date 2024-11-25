@@ -17,7 +17,7 @@ int main()
     constexpr int windowHeight = gridHeight * cellSize;
     constexpr int sidebarWidth = 300;
 
-    sf::RenderWindow window({windowWidth + sidebarWidth, windowHeight}, "Tetris");
+    sf::RenderWindow window({windowWidth + sidebarWidth, windowHeight}, "Tetris by Eliza Bet");
     window.setFramerateLimit(60);
 
     songController::SongPlayer songPlayer;
