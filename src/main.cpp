@@ -64,6 +64,11 @@ int main()
 
                 if (sidebar.isPauseClicked(mousePos)) {
                     isPaused = !isPaused;
+                    if (isPaused) {
+                        songPlayer.pause();
+                    } else {
+                        songPlayer.resume();
+                    }
                 }
 
                 if (sidebar.isRestartClicked(mousePos)) {
@@ -71,6 +76,8 @@ int main()
                     sidebar.updateScore(score);
                     sidebar.showGameOver(false);
                     controller.resetGame();
+                    songPlayer.stop();
+                    songPlayer.loadBackgroundMusic("assets/songs/tetris_classic_song.wav");
                 }
 
                 if (sidebar.isCloseClicked(mousePos)) {
@@ -94,6 +101,8 @@ int main()
             }
             if (controller.isGameOver()) {
                 sidebar.showGameOver(true);
+                songPlayer.stop();
+                songPlayer.playGameOverSound("assets/songs/game_over_sound.wav");
             }
             if (auto nextBlock = controller.getNextBlock()) {
                 sidebar.updateNextBlock(std::move(nextBlock));

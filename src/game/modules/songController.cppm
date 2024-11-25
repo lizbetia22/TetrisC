@@ -11,6 +11,7 @@ export namespace songController {
 
         void loadBackgroundMusic(const std::string& filename);
         void playCollisionSound(const std::string& filename);
+        void playGameOverSound(const std::string& filename);
         void stop();
         void pause();
         void resume();

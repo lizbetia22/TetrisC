@@ -26,6 +26,14 @@ namespace songController {
         collisionSound.play();
     }
 
+    void SongPlayer::playGameOverSound(const std::string& filename) {
+        if (!soundBuffer.loadFromFile(filename)) {
+            throw std::runtime_error("Unable to load game over sound file: " + filename);
+        }
+        collisionSound.setBuffer(soundBuffer);
+        collisionSound.play();
+    }
+
     void SongPlayer::stop() {
         backgroundMusic.stop();
     }
