@@ -16,6 +16,9 @@
         },
         {
           "logical-name": "songController"
+        },
+        {
+          "logical-name": "animation"
         }
       ]
     }

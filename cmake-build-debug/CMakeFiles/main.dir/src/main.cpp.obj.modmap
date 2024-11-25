@@ -3,3 +3,4 @@
 -fmodule-file=sidebar=CMakeFiles/main.dir/sidebar.pcm
 -fmodule-file=blocksController=CMakeFiles/main.dir/blocksController.pcm
 -fmodule-file=songController=CMakeFiles/main.dir/songController.pcm
+-fmodule-file=animation=CMakeFiles/main.dir/animation.pcm

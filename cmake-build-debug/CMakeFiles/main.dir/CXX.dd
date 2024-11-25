@@ -11,18 +11,23 @@ build CMakeFiles/main.dir/src/game/songController.cpp.obj: dyndep | CMakeFiles/m
 
 build CMakeFiles/main.dir/src/game/sidebar.cpp.obj: dyndep | CMakeFiles/main.dir/sidebar.pcm
 
+build CMakeFiles/main.dir/src/game/animationController.cpp.obj: dyndep | CMakeFiles/main.dir/animation.pcm
+
 build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/grid.pcm: dyndep
   restat = 1
 
 build CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj | CMakeFiles/main.dir/blocks.pcm: dyndep
   restat = 1
 
-build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/songController.pcm
+build CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj | CMakeFiles/main.dir/blocksController.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/songController.pcm CMakeFiles/main.dir/animation.pcm
   restat = 1
 
 build CMakeFiles/main.dir/src/game/modules/songController.cppm.obj | CMakeFiles/main.dir/songController.pcm: dyndep
   restat = 1
 
 build CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj | CMakeFiles/main.dir/sidebar.pcm: dyndep | CMakeFiles/main.dir/blocks.pcm
+  restat = 1
+
+build CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj | CMakeFiles/main.dir/animation.pcm: dyndep
   restat = 1
 

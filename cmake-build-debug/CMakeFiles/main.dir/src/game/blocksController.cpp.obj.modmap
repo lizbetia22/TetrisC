@@ -1,3 +1,4 @@
 -fmodule-file=blocksController=CMakeFiles/main.dir/blocksController.pcm
+-fmodule-file=animation=CMakeFiles/main.dir/animation.pcm
 -fmodule-file=blocks=CMakeFiles/main.dir/blocks.pcm
 -fmodule-file=songController=CMakeFiles/main.dir/songController.pcm

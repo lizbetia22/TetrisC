@@ -25,6 +25,7 @@ namespace blocksController {
    , m_fallDelay(1.0f)
    , m_score(0)
    , m_gameOver(false)
+   , m_lineAnimation(gridWidth, cellSize, texture)
     {
         createNewBlock();
         m_nextBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, std::rand() % 7);
@@ -150,6 +151,10 @@ namespace blocksController {
             linesToClear.push_back(y);
         }
     }
+    if (!linesToClear.empty()) {
+        m_lineAnimation.startLineAnimation(linesToClear);
+     }
+
     if (linesToClear.empty()) return 0;
     auto it = m_lockedBlocks.begin();
     while (it != m_lockedBlocks.end()) {
@@ -286,6 +291,10 @@ namespace blocksController {
 
     void BlocksController::update(float deltaTime) {
         if (!m_activeBlock) return;
+        if (!m_lineAnimation.isAnimationComplete()) {
+            m_lineAnimation.update(deltaTime);
+            return;
+        }
         if (m_moveClock->getElapsedTime().asSeconds() > m_fallDelay) {
             if (canMove(0, 1)) {
                 m_activeBlock->move(0, 1);
@@ -303,6 +312,7 @@ namespace blocksController {
         if (m_activeBlock) {
             m_activeBlock->draw(window);
         }
+        m_lineAnimation.draw(window);
     }
 
     bool BlocksController::isGameOver() const {

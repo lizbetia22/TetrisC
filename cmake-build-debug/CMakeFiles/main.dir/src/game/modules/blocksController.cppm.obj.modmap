@@ -2,3 +2,4 @@
 -fmodule-output=CMakeFiles/main.dir/blocksController.pcm
 -fmodule-file=blocks=CMakeFiles/main.dir/blocks.pcm
 -fmodule-file=songController=CMakeFiles/main.dir/songController.pcm
+-fmodule-file=animation=CMakeFiles/main.dir/animation.pcm

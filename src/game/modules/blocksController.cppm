@@ -7,6 +7,7 @@ module;
 export module blocksController;
 import blocks;
 import songController;
+import animation;
 
 export namespace blocksController {
     class BlocksController {
@@ -42,5 +43,6 @@ export namespace blocksController {
         int m_score;
         bool m_gameOver;
         bool canPlaceNewBlock() const;
+        animation::AnimationController m_lineAnimation;
     };
 }

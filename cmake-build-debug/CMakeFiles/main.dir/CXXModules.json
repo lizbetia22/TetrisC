@@ -1,6 +1,11 @@
 {
 	"modules" : 
 	{
+		"animation" : 
+		{
+			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/animation.pcm",
+			"is-private" : false
+		},
 		"blocks" : 
 		{
 			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/blocks.pcm",
@@ -29,6 +34,11 @@
 	},
 	"references" : 
 	{
+		"animation" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/main.dir/animation.pcm"
+		},
 		"blocks" : 
 		{
 			"lookup-method" : "by-name",
@@ -59,6 +69,7 @@
 	{
 		"blocksController" : 
 		[
+			"animation",
 			"blocks",
 			"songController"
 		],
