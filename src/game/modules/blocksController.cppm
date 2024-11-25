@@ -20,6 +20,7 @@ export namespace blocksController {
         bool canRotate() const;
         int checkAndClearLines();
         void resetGame();
+        void updateFallSpeed(int);
         std::unique_ptr<blocks::Blocks> getNextBlock() const;
 
     private:
@@ -36,5 +37,7 @@ export namespace blocksController {
         std::vector<std::vector<int>> m_occupiedCells;
         songController::SongPlayer& m_songPlayer;
         std::unique_ptr<blocks::Blocks> m_nextBlock;
+        float m_fallDelay;
+        int m_score;
     };
 }

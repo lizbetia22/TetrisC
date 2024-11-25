@@ -85,6 +85,7 @@ int main()
             if (linesCleared > 0) {
                 score += linesCleared * 10;
                 sidebar.updateScore(score);
+                controller.updateFallSpeed(score);
             }
             if (auto nextBlock = controller.getNextBlock()) {
                 sidebar.updateNextBlock(std::move(nextBlock));

@@ -21,7 +21,9 @@ namespace blocksController {
    , m_texture(texture)
    , m_songPlayer(songPlayer)
    , m_moveClock(std::make_unique<sf::Clock>())
-   , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
+    , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
+     , m_fallDelay(1.0f)
+     , m_score(0)
     {
         createNewBlock();
         m_nextBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, std::rand() % 7);
@@ -217,9 +219,17 @@ namespace blocksController {
         return linesToClear.size();
 }
 
+    void BlocksController::updateFallSpeed(int score){
+        m_score = score;
+        float speedMultiplier = 1.0f - (static_cast<float>(score / 20) * 0.15f);
+        m_fallDelay = std::max(0.08f, speedMultiplier);
+    }
+
     void BlocksController::resetGame() {
         m_lockedBlocks.clear();
         m_occupiedCells = std::vector<std::vector<int>>(m_gridHeight, std::vector<int>(m_gridWidth, 0));
+        m_fallDelay = 1.0f;
+        m_score = 0;
         createNewBlock();
     }
 
@@ -254,13 +264,11 @@ namespace blocksController {
 
     void BlocksController::update(float deltaTime) {
         if (!m_activeBlock) return;
-
-        if (m_moveClock->getElapsedTime().asSeconds() > 1.0f) {
+        if (m_moveClock->getElapsedTime().asSeconds() > m_fallDelay) {
             if (canMove(0, 1)) {
                 m_activeBlock->move(0, 1);
             } else {
                 lockBlock();
-              //  checkAndClearLines();
             }
             m_moveClock->restart();
         }
