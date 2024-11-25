@@ -67,13 +67,23 @@ namespace sidebar {
 
     m_nextBlockText.setFont(m_font);
     m_nextBlockText.setString("Next Block:");
-    m_nextBlockText.setCharacterSize(50);
+    m_nextBlockText.setCharacterSize(40);
     m_nextBlockText.setFillColor(sf::Color::White);
     m_nextBlockText.setPosition(gridWidth * 60 + 20, 380);
 
     m_nextBlockPreview.setSize(sf::Vector2f(220, 220));
     m_nextBlockPreview.setFillColor(sf::Color(0, 0, 0));
     m_nextBlockPreview.setPosition(gridWidth * 60 + 20, 450);
+
+    m_gameOverText.setFont(m_font);
+    m_gameOverText.setString("GAME OVER");
+    m_gameOverText.setCharacterSize(50);
+    m_gameOverText.setFillColor(sf::Color::Red);
+    m_gameOverText.setPosition(
+        gridWidth * 60 + (300 - m_gameOverText.getLocalBounds().width) / 2,
+        800
+    );
+    m_isGameOver = false;
 }
     void Sidebar::draw(sf::RenderWindow& window) const {
         window.draw(m_scoreText);
@@ -88,12 +98,19 @@ namespace sidebar {
         if (m_nextBlock) {
             m_nextBlock->draw(window);
         }
+       if (m_isGameOver) {
+           window.draw(m_gameOverText);
+       }
     }
 
     void Sidebar::updateScore(int newScore) {
         m_score = newScore;
         m_scoreText.setString("Score: " + std::to_string(m_score));
     }
+
+    void Sidebar::showGameOver(bool isGameOver) {
+       m_isGameOver = isGameOver;
+   }
 
     bool Sidebar::isPauseClicked(const sf::Vector2f& mousePos) const {
         return m_pauseButton.getGlobalBounds().contains(mousePos);

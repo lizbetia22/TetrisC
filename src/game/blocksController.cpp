@@ -21,9 +21,10 @@ namespace blocksController {
    , m_texture(texture)
    , m_songPlayer(songPlayer)
    , m_moveClock(std::make_unique<sf::Clock>())
-    , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
-     , m_fallDelay(1.0f)
-     , m_score(0)
+   , m_occupiedCells(gridHeight, std::vector<int>(gridWidth, 0))
+   , m_fallDelay(1.0f)
+   , m_score(0)
+   , m_gameOver(false)
     {
         createNewBlock();
         m_nextBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, std::rand() % 7);
@@ -39,6 +40,26 @@ namespace blocksController {
 
         int nextShapeType = std::rand() % 7;
         m_nextBlock = std::make_unique<blocks::Blocks>(m_cellSize, m_texture, nextShapeType);
+
+        if (!canPlaceNewBlock()) {
+            m_gameOver = true;
+        }
+    }
+
+    bool BlocksController::canPlaceNewBlock() const {
+        if (!m_activeBlock) return false;
+
+        auto positions = m_activeBlock->getPositions();
+        for (const auto& pos : positions) {
+            int gridX = static_cast<int>(pos.x / m_cellSize);
+            int gridY = static_cast<int>(pos.y / m_cellSize);
+
+            if (gridY >= 0 && gridX >= 0 && gridX < m_gridWidth &&
+                m_occupiedCells[gridY][gridX] == 1) {
+                return false;
+                }
+        }
+        return true;
     }
 
     std::unique_ptr<blocks::Blocks> BlocksController::getNextBlock() const {
@@ -230,6 +251,7 @@ namespace blocksController {
         m_occupiedCells = std::vector<std::vector<int>>(m_gridHeight, std::vector<int>(m_gridWidth, 0));
         m_fallDelay = 1.0f;
         m_score = 0;
+        m_gameOver = false;
         createNewBlock();
     }
 
@@ -281,5 +303,9 @@ namespace blocksController {
         if (m_activeBlock) {
             m_activeBlock->draw(window);
         }
+    }
+
+    bool BlocksController::isGameOver() const {
+        return m_gameOver;
     }
 }

@@ -42,6 +42,10 @@ int main()
     pauseOverlay.setSize(sf::Vector2f(windowWidth, windowHeight));
     pauseOverlay.setFillColor(sf::Color(150, 150, 150, 150));
 
+    sf::RectangleShape gameOverOverlay;
+    gameOverOverlay.setSize(sf::Vector2f(windowWidth, windowHeight));
+    gameOverOverlay.setFillColor(sf::Color(150, 150, 150, 150));
+
     sf::Clock deltaClock;
     int score = 0;
     bool isPaused = false;
@@ -65,6 +69,7 @@ int main()
                 if (sidebar.isRestartClicked(mousePos)) {
                     score = 0;
                     sidebar.updateScore(score);
+                    sidebar.showGameOver(false);
                     controller.resetGame();
                 }
 
@@ -75,7 +80,7 @@ int main()
             }
         }
 
-        if (!isPaused) {
+        if (!isPaused && !controller.isGameOver()) {
             float deltaTime = deltaClock.restart().asSeconds();
 
             controller.handleInput();
@@ -86,6 +91,9 @@ int main()
                 score += linesCleared * 10;
                 sidebar.updateScore(score);
                 controller.updateFallSpeed(score);
+            }
+            if (controller.isGameOver()) {
+                sidebar.showGameOver(true);
             }
             if (auto nextBlock = controller.getNextBlock()) {
                 sidebar.updateNextBlock(std::move(nextBlock));
@@ -98,6 +106,9 @@ int main()
         sidebar.draw(window);
         if (isPaused) {
             window.draw(pauseOverlay);
+        }
+        if (controller.isGameOver()) {
+            window.draw(gameOverOverlay);
         }
         window.display();
     }

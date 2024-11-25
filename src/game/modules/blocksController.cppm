@@ -22,6 +22,7 @@ export namespace blocksController {
         void resetGame();
         void updateFallSpeed(int);
         std::unique_ptr<blocks::Blocks> getNextBlock() const;
+        bool isGameOver() const;
 
     private:
         bool canMove(int dx, int dy) const;
@@ -39,5 +40,7 @@ export namespace blocksController {
         std::unique_ptr<blocks::Blocks> m_nextBlock;
         float m_fallDelay;
         int m_score;
+        bool m_gameOver;
+        bool canPlaceNewBlock() const;
     };
 }

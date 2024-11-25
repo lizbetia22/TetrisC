@@ -15,6 +15,7 @@ export namespace sidebar {
         bool isRestartClicked(const sf::Vector2f& mousePos) const;
         bool isCloseClicked(const sf::Vector2f& mousePos) const;
         void updateNextBlock(std::unique_ptr<blocks::Blocks> nextBlock);
+        void showGameOver(bool isGameOver);
 
     private:
         sf::Font m_font;
@@ -29,5 +30,7 @@ export namespace sidebar {
         sf::RectangleShape m_nextBlockPreview;
         std::unique_ptr<blocks::Blocks> m_nextBlock;
         int m_score;
+        sf::Text m_gameOverText;
+        bool m_isGameOver;
     };
 }
