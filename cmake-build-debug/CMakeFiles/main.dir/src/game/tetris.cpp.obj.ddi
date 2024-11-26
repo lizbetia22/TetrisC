@@ -1,0 +1,14 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\tetris.cpp.obj",
+      "requires": [
+        {
+          "logical-name": "tetris"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

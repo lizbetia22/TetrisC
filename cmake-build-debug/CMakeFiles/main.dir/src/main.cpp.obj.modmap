@@ -1,6 +1,7 @@
--fmodule-file=grid=CMakeFiles/main.dir/grid.pcm
--fmodule-file=blocks=CMakeFiles/main.dir/blocks.pcm
--fmodule-file=sidebar=CMakeFiles/main.dir/sidebar.pcm
--fmodule-file=blocksController=CMakeFiles/main.dir/blocksController.pcm
--fmodule-file=songController=CMakeFiles/main.dir/songController.pcm
+-fmodule-file=tetris=CMakeFiles/main.dir/tetris.pcm
 -fmodule-file=animation=CMakeFiles/main.dir/animation.pcm
+-fmodule-file=blocks=CMakeFiles/main.dir/blocks.pcm
+-fmodule-file=blocksController=CMakeFiles/main.dir/blocksController.pcm
+-fmodule-file=grid=CMakeFiles/main.dir/grid.pcm
+-fmodule-file=sidebar=CMakeFiles/main.dir/sidebar.pcm
+-fmodule-file=songController=CMakeFiles/main.dir/songController.pcm

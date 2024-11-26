@@ -1,0 +1,33 @@
+{
+  "revision": 0,
+  "rules": [
+    {
+      "primary-output": "CMakeFiles\\main.dir\\src\\game\\modules\\tetris.cppm.obj",
+      "provides": [
+        {
+          "is-interface": true,
+          "logical-name": "tetris",
+          "source-path": "C:/Esimed admin/C++/TetrisC/src/game/modules/tetris.cppm"
+        }
+      ],
+      "requires": [
+        {
+          "logical-name": "grid"
+        },
+        {
+          "logical-name": "blocks"
+        },
+        {
+          "logical-name": "sidebar"
+        },
+        {
+          "logical-name": "blocksController"
+        },
+        {
+          "logical-name": "songController"
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

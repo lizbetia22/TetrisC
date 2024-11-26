@@ -182,6 +182,25 @@ build CMakeFiles/main.dir/src/game/animationController.cpp.obj: CXX_COMPILER__ma
   OBJECT_FILE_DIR = CMakeFiles\main.dir\src\game
   dyndep = CMakeFiles/main.dir/CXX.dd
 
+build CMakeFiles/main.dir/src/game/tetris.cpp.obj.ddi: CXX_SCAN__main_Debug C$:/Esimed$ admin/C++/TetrisC/src/game/tetris.cpp || cmake_object_order_depends_target_main
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\main.dir\src\game\tetris.cpp.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\main.dir\src\game\tetris.cpp.obj.ddi
+  FLAGS = -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics
+  INCLUDES = -isystem "C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include"
+  OBJ_FILE = CMakeFiles\main.dir\src\game\tetris.cpp.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\main.dir\src\game\tetris.cpp.obj.ddi.i
+
+build CMakeFiles/main.dir/src/game/tetris.cpp.obj: CXX_COMPILER__main_scanned_Debug C$:/Esimed$ admin/C++/TetrisC/src/game/tetris.cpp | CMakeFiles/main.dir/src/game/tetris.cpp.obj.modmap || cmake_object_order_depends_target_main CMakeFiles/main.dir/CXX.dd
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\main.dir\src\game\tetris.cpp.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\main.dir\src\game\tetris.cpp.obj.modmap
+  FLAGS = -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics
+  INCLUDES = -isystem "C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include"
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src\game
+  dyndep = CMakeFiles/main.dir/CXX.dd
+
 build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj.ddi: CXX_SCAN__main_Debug C$:/Esimed$ admin/C++/TetrisC/src/game/modules/grid.cppm || cmake_object_order_depends_target_main
   DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles\main.dir\src\game\modules\grid.cppm.obj.ddi.d
@@ -296,7 +315,26 @@ build CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj: CXX_COM
   OBJECT_FILE_DIR = CMakeFiles\main.dir\src\game\modules
   dyndep = CMakeFiles/main.dir/CXX.dd
 
-build CMakeFiles/main.dir/CXX.dd | C$:/Esimed$ admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/CXXModules.json CMakeFiles/main.dir/src/main.cpp.obj.modmap CMakeFiles/main.dir/src/game/grid.cpp.obj.modmap CMakeFiles/main.dir/src/game/blocks.cpp.obj.modmap CMakeFiles/main.dir/src/game/blocksController.cpp.obj.modmap CMakeFiles/main.dir/src/game/songController.cpp.obj.modmap CMakeFiles/main.dir/src/game/sidebar.cpp.obj.modmap CMakeFiles/main.dir/src/game/animationController.cpp.obj.modmap CMakeFiles/main.dir/src/game/modules/grid.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/songController.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj.modmap: CXX_DYNDEP__main_Debug CMakeFiles/main.dir/src/main.cpp.obj.ddi CMakeFiles/main.dir/src/game/grid.cpp.obj.ddi CMakeFiles/main.dir/src/game/blocks.cpp.obj.ddi CMakeFiles/main.dir/src/game/blocksController.cpp.obj.ddi CMakeFiles/main.dir/src/game/songController.cpp.obj.ddi CMakeFiles/main.dir/src/game/sidebar.cpp.obj.ddi CMakeFiles/main.dir/src/game/animationController.cpp.obj.ddi CMakeFiles/main.dir/src/game/modules/grid.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/songController.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj.ddi | C$:/Esimed$ admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/CXXDependInfo.json
+build CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj.ddi: CXX_SCAN__main_Debug C$:/Esimed$ admin/C++/TetrisC/src/game/modules/tetris.cppm || cmake_object_order_depends_target_main
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\main.dir\src\game\modules\tetris.cppm.obj.ddi.d
+  DYNDEP_INTERMEDIATE_FILE = CMakeFiles\main.dir\src\game\modules\tetris.cppm.obj.ddi
+  FLAGS = -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics
+  INCLUDES = -isystem "C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include"
+  OBJ_FILE = CMakeFiles\main.dir\src\game\modules\tetris.cppm.obj
+  PREPROCESSED_OUTPUT_FILE = CMakeFiles\main.dir\src\game\modules\tetris.cppm.obj.ddi.i
+
+build CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj: CXX_COMPILER__main_scanned_Debug C$:/Esimed$ admin/C++/TetrisC/src/game/modules/tetris.cppm | CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj.modmap || cmake_object_order_depends_target_main CMakeFiles/main.dir/CXX.dd
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\main.dir\src\game\modules\tetris.cppm.obj.d
+  DYNDEP_MODULE_MAP_FILE = CMakeFiles\main.dir\src\game\modules\tetris.cppm.obj.modmap
+  FLAGS = -g -std=gnu++23 -fansi-escape-codes -fcolor-diagnostics
+  INCLUDES = -isystem "C:/Esimed admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include"
+  OBJECT_DIR = CMakeFiles\main.dir
+  OBJECT_FILE_DIR = CMakeFiles\main.dir\src\game\modules
+  dyndep = CMakeFiles/main.dir/CXX.dd
+
+build CMakeFiles/main.dir/CXX.dd | C$:/Esimed$ admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/CXXModules.json CMakeFiles/main.dir/src/main.cpp.obj.modmap CMakeFiles/main.dir/src/game/grid.cpp.obj.modmap CMakeFiles/main.dir/src/game/blocks.cpp.obj.modmap CMakeFiles/main.dir/src/game/blocksController.cpp.obj.modmap CMakeFiles/main.dir/src/game/songController.cpp.obj.modmap CMakeFiles/main.dir/src/game/sidebar.cpp.obj.modmap CMakeFiles/main.dir/src/game/animationController.cpp.obj.modmap CMakeFiles/main.dir/src/game/tetris.cpp.obj.modmap CMakeFiles/main.dir/src/game/modules/grid.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/songController.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj.modmap CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj.modmap: CXX_DYNDEP__main_Debug CMakeFiles/main.dir/src/main.cpp.obj.ddi CMakeFiles/main.dir/src/game/grid.cpp.obj.ddi CMakeFiles/main.dir/src/game/blocks.cpp.obj.ddi CMakeFiles/main.dir/src/game/blocksController.cpp.obj.ddi CMakeFiles/main.dir/src/game/songController.cpp.obj.ddi CMakeFiles/main.dir/src/game/sidebar.cpp.obj.ddi CMakeFiles/main.dir/src/game/animationController.cpp.obj.ddi CMakeFiles/main.dir/src/game/tetris.cpp.obj.ddi CMakeFiles/main.dir/src/game/modules/grid.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/songController.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj.ddi CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj.ddi | C$:/Esimed$ admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/CXXDependInfo.json
 
 
 # =============================================================================
@@ -306,7 +344,7 @@ build CMakeFiles/main.dir/CXX.dd | C$:/Esimed$ admin/C++/TetrisC/cmake-build-deb
 #############################################
 # Link the executable bin\main.exe
 
-build bin/main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.obj CMakeFiles/main.dir/src/game/grid.cpp.obj CMakeFiles/main.dir/src/game/blocks.cpp.obj CMakeFiles/main.dir/src/game/blocksController.cpp.obj CMakeFiles/main.dir/src/game/songController.cpp.obj CMakeFiles/main.dir/src/game/sidebar.cpp.obj CMakeFiles/main.dir/src/game/animationController.cpp.obj CMakeFiles/main.dir/src/game/modules/grid.cppm.obj CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj CMakeFiles/main.dir/src/game/modules/songController.cppm.obj CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a _deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a _deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a _deps/sfml-src/extlibs/libs-mingw/x64/libogg.a _deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a || _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
+build bin/main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/src/main.cpp.obj CMakeFiles/main.dir/src/game/grid.cpp.obj CMakeFiles/main.dir/src/game/blocks.cpp.obj CMakeFiles/main.dir/src/game/blocksController.cpp.obj CMakeFiles/main.dir/src/game/songController.cpp.obj CMakeFiles/main.dir/src/game/sidebar.cpp.obj CMakeFiles/main.dir/src/game/animationController.cpp.obj CMakeFiles/main.dir/src/game/tetris.cpp.obj CMakeFiles/main.dir/src/game/modules/grid.cppm.obj CMakeFiles/main.dir/src/game/modules/blocks.cppm.obj CMakeFiles/main.dir/src/game/modules/blocksController.cppm.obj CMakeFiles/main.dir/src/game/modules/songController.cppm.obj CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj | _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a _deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a _deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a _deps/sfml-src/extlibs/libs-mingw/x64/libogg.a _deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a || _deps/sfml-build/lib/libsfml-audio-s-d.a _deps/sfml-build/lib/libsfml-graphics-s-d.a _deps/sfml-build/lib/libsfml-system-s-d.a _deps/sfml-build/lib/libsfml-window-s-d.a
   FLAGS = -g
   LINK_LIBRARIES = _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-graphics-s-d.a  _deps/sfml-build/lib/libsfml-audio-s-d.a  _deps/sfml-build/lib/libsfml-window-s-d.a  -lopengl32  -lgdi32  _deps/sfml-src/extlibs/libs-mingw/x64/libfreetype.a  _deps/sfml-src/extlibs/libs-mingw/x64/libopenal32.a  _deps/sfml-build/lib/libsfml-system-s-d.a  -lwinmm  _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisenc.a  _deps/sfml-src/extlibs/libs-mingw/x64/libvorbisfile.a  _deps/sfml-src/extlibs/libs-mingw/x64/libvorbis.a  _deps/sfml-src/extlibs/libs-mingw/x64/libogg.a  _deps/sfml-src/extlibs/libs-mingw/x64/libFLAC.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\main.dir

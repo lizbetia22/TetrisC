@@ -1,5 +1,5 @@
 ninja_dyndep_version = 1.0
-build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/sidebar.pcm CMakeFiles/main.dir/blocksController.pcm CMakeFiles/main.dir/songController.pcm
+build CMakeFiles/main.dir/src/main.cpp.obj: dyndep | CMakeFiles/main.dir/tetris.pcm
 
 build CMakeFiles/main.dir/src/game/grid.cpp.obj: dyndep | CMakeFiles/main.dir/grid.pcm
 
@@ -12,6 +12,8 @@ build CMakeFiles/main.dir/src/game/songController.cpp.obj: dyndep | CMakeFiles/m
 build CMakeFiles/main.dir/src/game/sidebar.cpp.obj: dyndep | CMakeFiles/main.dir/sidebar.pcm
 
 build CMakeFiles/main.dir/src/game/animationController.cpp.obj: dyndep | CMakeFiles/main.dir/animation.pcm
+
+build CMakeFiles/main.dir/src/game/tetris.cpp.obj: dyndep | CMakeFiles/main.dir/tetris.pcm
 
 build CMakeFiles/main.dir/src/game/modules/grid.cppm.obj | CMakeFiles/main.dir/grid.pcm: dyndep
   restat = 1
@@ -29,5 +31,8 @@ build CMakeFiles/main.dir/src/game/modules/sidebar.cppm.obj | CMakeFiles/main.di
   restat = 1
 
 build CMakeFiles/main.dir/src/game/modules/animationController.cppm.obj | CMakeFiles/main.dir/animation.pcm: dyndep
+  restat = 1
+
+build CMakeFiles/main.dir/src/game/modules/tetris.cppm.obj | CMakeFiles/main.dir/tetris.pcm: dyndep | CMakeFiles/main.dir/grid.pcm CMakeFiles/main.dir/blocks.pcm CMakeFiles/main.dir/sidebar.pcm CMakeFiles/main.dir/blocksController.pcm CMakeFiles/main.dir/songController.pcm
   restat = 1
 

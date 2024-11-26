@@ -5,19 +5,7 @@
       "primary-output": "CMakeFiles\\main.dir\\src\\main.cpp.obj",
       "requires": [
         {
-          "logical-name": "grid"
-        },
-        {
-          "logical-name": "blocks"
-        },
-        {
-          "logical-name": "sidebar"
-        },
-        {
-          "logical-name": "blocksController"
-        },
-        {
-          "logical-name": "songController"
+          "logical-name": "tetris"
         }
       ]
     }

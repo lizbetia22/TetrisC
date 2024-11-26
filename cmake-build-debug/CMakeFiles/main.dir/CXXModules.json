@@ -30,6 +30,11 @@
 		{
 			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/songController.pcm",
 			"is-private" : false
+		},
+		"tetris" : 
+		{
+			"bmi" : "C:/Esimed admin/C++/TetrisC/cmake-build-debug/CMakeFiles/main.dir/tetris.pcm",
+			"is-private" : false
 		}
 	},
 	"references" : 
@@ -63,6 +68,11 @@
 		{
 			"lookup-method" : "by-name",
 			"path" : "CMakeFiles/main.dir/songController.pcm"
+		},
+		"tetris" : 
+		{
+			"lookup-method" : "by-name",
+			"path" : "CMakeFiles/main.dir/tetris.pcm"
 		}
 	},
 	"usages" : 
@@ -76,6 +86,15 @@
 		"sidebar" : 
 		[
 			"blocks"
+		],
+		"tetris" : 
+		[
+			"animation",
+			"blocks",
+			"blocksController",
+			"grid",
+			"sidebar",
+			"songController"
 		]
 	}
 }

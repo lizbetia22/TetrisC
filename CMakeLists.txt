@@ -22,6 +22,7 @@ add_executable(
         src/game/songController.cpp
         src/game/sidebar.cpp
         src/game/animationController.cpp
+        src/game/tetris.cpp
 )
 
 target_sources(
@@ -35,6 +36,7 @@ target_sources(
         src/game/modules/songController.cppm
         src/game/modules/sidebar.cppm
         src/game/modules/animationController.cppm
+        src/game/modules/tetris.cppm
 )
 
 target_link_libraries(main PRIVATE sfml-graphics)
