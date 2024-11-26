@@ -2,105 +2,123 @@ module;
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <algorithm>
+#include <stdexcept>
+#include <ranges>
 
 module sidebar;
 
 namespace sidebar {
-   Sidebar::Sidebar(int windowWidth, int windowHeight, int gridWidth) : m_score(0) {
-    if (!m_font.loadFromFile("assets/fonts/stocky.ttf")) {
-        throw std::runtime_error("Could not load font");
+    Sidebar::Sidebar(int windowWidth, int windowHeight, int gridWidth) :
+        m_score(0),
+        m_isGameOver(false) {
+
+        auto loadFont = [this]() {
+            if (!m_font.loadFromFile("assets/fonts/stocky.ttf")) {
+                throw std::runtime_error("Could not load font");
+            }
+        };
+
+        auto configureText = [this](sf::Text& text, const std::string& str,
+                                          unsigned int size, sf::Color color,
+                                          sf::Vector2f position) {
+            text.setFont(m_font);
+            text.setString(str);
+            text.setCharacterSize(size);
+            text.setFillColor(color);
+            text.setPosition(position);
+        };
+
+        auto configureButton = [this](sf::RectangleShape& button, sf::Text& buttonText,
+                                            const std::string& text, sf::Vector2f position) {
+            sf::Color buttonColor(100, 100, 100);
+            sf::Color textColor(255, 255, 255);
+            int buttonWidth = 150;
+            int buttonHeight = 60;
+
+            button.setSize(sf::Vector2f(buttonWidth, buttonHeight));
+            button.setFillColor(buttonColor);
+            button.setPosition(position);
+
+            buttonText.setFont(m_font);
+            buttonText.setString(text);
+            buttonText.setCharacterSize(24);
+            buttonText.setFillColor(textColor);
+            buttonText.setPosition(
+                position.x + (buttonWidth - buttonText.getLocalBounds().width) / 2,
+                position.y + (buttonHeight - buttonText.getLocalBounds().height) / 2
+            );
+        };
+
+        loadFont();
+
+        configureText(m_scoreText, "Score: 0", 40, sf::Color::White,
+                            sf::Vector2f(gridWidth * 60 + 20, 20));
+
+        int sidebarWidth = 300;
+        int buttonWidth = 150;
+        int buttonHeight = 60;
+        int spacing = 25;
+
+        float buttonX = gridWidth * 60 + (sidebarWidth - buttonWidth) / 2;
+
+        configureButton(m_pauseButton, m_pauseText, "Pause",
+                              sf::Vector2f(buttonX, 100));
+
+        configureButton(m_restartButton, m_restartText, "Restart",
+                              sf::Vector2f(buttonX, 100 + buttonHeight + spacing));
+
+        configureButton(m_closeButton, m_closeText, "Close",
+                              sf::Vector2f(buttonX, 100 + 2 * (buttonHeight + spacing)));
+
+        configureText(m_nextBlockText, "Next Block:", 40, sf::Color::White,
+                            sf::Vector2f(gridWidth * 60 + 20, 380));
+
+        m_nextBlockPreview.setSize(sf::Vector2f(220, 220));
+        m_nextBlockPreview.setFillColor(sf::Color(0, 0, 0));
+        m_nextBlockPreview.setPosition(gridWidth * 60 + 20, 450);
+
+        configureText(m_gameOverText, "GAME OVER", 40, sf::Color::Red,
+                            sf::Vector2f(
+                                gridWidth * 60 + (20 - m_gameOverText.getLocalBounds().width) / 2,
+                                800
+                            ));
     }
 
-    m_scoreText.setFont(m_font);
-    m_scoreText.setCharacterSize(40);
-    m_scoreText.setFillColor(sf::Color::White);
-    m_scoreText.setPosition(gridWidth * 60 + 20, 20);
-    m_scoreText.setString("Score: 0");
+    void Sidebar::operator()(int newScore) {
+        updateScore(newScore);
+    }
 
-    sf::Color buttonColor(100, 100, 100);
-    sf::Color textColor(255, 255, 255);
-    int buttonWidth = 150;
-    int buttonHeight = 60;
-    int spacing = 25;
-    int sidebarWidth = 300;
+    void Sidebar::operator()(std::unique_ptr<blocks::Blocks> nextBlock) {
+        updateNextBlock(std::move(nextBlock));
+    }
 
-    float buttonX = gridWidth * 60 + (sidebarWidth - buttonWidth) / 2;
+    bool Sidebar::operator==(const Sidebar& other) const {
+        return m_score == other.m_score &&
+               m_isGameOver == other.m_isGameOver;
+    }
 
-    m_pauseButton.setSize(sf::Vector2f(buttonWidth, buttonHeight));
-    m_pauseButton.setFillColor(buttonColor);
-    m_pauseButton.setPosition(buttonX, 100);
-
-    m_pauseText.setFont(m_font);
-    m_pauseText.setString("Pause");
-    m_pauseText.setCharacterSize(24);
-    m_pauseText.setFillColor(textColor);
-    m_pauseText.setPosition(
-        buttonX + (buttonWidth - m_pauseText.getLocalBounds().width) / 2,
-        100 + (buttonHeight - m_pauseText.getLocalBounds().height) / 2
-    );
-
-    m_restartButton.setSize(sf::Vector2f(buttonWidth, buttonHeight));
-    m_restartButton.setFillColor(buttonColor);
-    m_restartButton.setPosition(buttonX, 100 + buttonHeight + spacing);
-
-    m_restartText.setFont(m_font);
-    m_restartText.setString("Restart");
-    m_restartText.setCharacterSize(24);
-    m_restartText.setFillColor(textColor);
-    m_restartText.setPosition(
-        buttonX + (buttonWidth - m_restartText.getLocalBounds().width) / 2,
-        100 + buttonHeight + spacing + (buttonHeight - m_restartText.getLocalBounds().height) / 2
-    );
-
-    m_closeButton.setSize(sf::Vector2f(buttonWidth, buttonHeight));
-    m_closeButton.setFillColor(buttonColor);
-    m_closeButton.setPosition(buttonX, 100 + 2 * (buttonHeight + spacing));
-
-    m_closeText.setFont(m_font);
-    m_closeText.setString("Close");
-    m_closeText.setCharacterSize(24);
-    m_closeText.setFillColor(textColor);
-    m_closeText.setPosition(
-        buttonX + (buttonWidth - m_closeText.getLocalBounds().width) / 2,
-        100 + 2 * (buttonHeight + spacing) + (buttonHeight - m_closeText.getLocalBounds().height) / 2
-    );
-
-    m_nextBlockText.setFont(m_font);
-    m_nextBlockText.setString("Next Block:");
-    m_nextBlockText.setCharacterSize(40);
-    m_nextBlockText.setFillColor(sf::Color::White);
-    m_nextBlockText.setPosition(gridWidth * 60 + 20, 380);
-
-    m_nextBlockPreview.setSize(sf::Vector2f(220, 220));
-    m_nextBlockPreview.setFillColor(sf::Color(0, 0, 0));
-    m_nextBlockPreview.setPosition(gridWidth * 60 + 20, 450);
-
-    m_gameOverText.setFont(m_font);
-    m_gameOverText.setString("GAME OVER");
-    m_gameOverText.setCharacterSize(40);
-    m_gameOverText.setFillColor(sf::Color::Red);
-    m_gameOverText.setPosition(
-        gridWidth * 60 + (300 - m_gameOverText.getLocalBounds().width) / 2,
-        800
-    );
-    m_isGameOver = false;
-}
     void Sidebar::draw(sf::RenderWindow& window) const {
-        window.draw(m_scoreText);
-        window.draw(m_pauseButton);
-        window.draw(m_pauseText);
-        window.draw(m_restartButton);
-        window.draw(m_restartText);
-        window.draw(m_closeButton);
-        window.draw(m_closeText);
-        window.draw(m_nextBlockText);
-        window.draw(m_nextBlockPreview);
+        auto drawElement = [&window](const auto& element) {
+            window.draw(element);
+        };
+
+        std::vector<std::reference_wrapper<const sf::Drawable>> elements = {
+            m_scoreText, m_pauseButton, m_pauseText,
+            m_restartButton, m_restartText,
+            m_closeButton, m_closeText,
+            m_nextBlockText, m_nextBlockPreview
+        };
+
+        std::ranges::for_each(elements, drawElement);
+
         if (m_nextBlock) {
             m_nextBlock->draw(window);
         }
-       if (m_isGameOver) {
-           window.draw(m_gameOverText);
-       }
+
+        if (m_isGameOver) {
+            window.draw(m_gameOverText);
+        }
     }
 
     void Sidebar::updateScore(int newScore) {
@@ -109,8 +127,8 @@ namespace sidebar {
     }
 
     void Sidebar::showGameOver(bool isGameOver) {
-       m_isGameOver = isGameOver;
-   }
+        m_isGameOver = isGameOver;
+    }
 
     bool Sidebar::isPauseClicked(const sf::Vector2f& mousePos) const {
         return m_pauseButton.getGlobalBounds().contains(mousePos);
@@ -125,30 +143,35 @@ namespace sidebar {
     }
 
     void Sidebar::updateNextBlock(std::unique_ptr<blocks::Blocks> nextBlock) {
+        auto adjustBlockPosition = [this](const std::unique_ptr<blocks::Blocks>& block) {
+            if (block) {
+                float previewX = m_nextBlockPreview.getPosition().x + 30;
+                float previewY = m_nextBlockPreview.getPosition().y + 30;
+
+                auto positions = block->getPositions();
+
+                float minX = std::ranges::min_element(positions,
+                [](const auto& a, const auto& b) {
+                     return a.x < b.x;
+                     })->x;
+
+                float minY = std::ranges::min_element(positions,
+                    [](const auto& a, const auto& b) {
+                        return a.y < b.y;
+                    })->y;
+
+                float offsetX = previewX - minX;
+                float offsetY = previewY - minY;
+
+                for (auto& pos : positions) {
+                    pos.x += offsetX;
+                    pos.y += offsetY;
+                }
+
+                block->setPositions(positions);
+            }
+        };
         m_nextBlock = std::move(nextBlock);
-        if (m_nextBlock) {
-            float previewX = m_nextBlockPreview.getPosition().x + 30;
-            float previewY = m_nextBlockPreview.getPosition().y + 30;
-
-            auto positions = m_nextBlock->getPositions();
-            float minX = positions[0].x;
-            float minY = positions[0].y;
-
-            for (const auto& pos : positions) {
-                minX = std::min(minX, pos.x);
-                minY = std::min(minY, pos.y);
-            }
-
-            float offsetX = previewX - minX;
-            float offsetY = previewY - minY;
-
-            auto newPositions = positions;
-            for (auto& pos : newPositions) {
-                pos.x += offsetX;
-                pos.y += offsetY;
-            }
-
-            m_nextBlock->setPositions(newPositions);
-        }
+        adjustBlockPosition(m_nextBlock);
     }
 }

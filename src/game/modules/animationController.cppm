@@ -1,8 +1,8 @@
 module;
-
 #include <SFML/Graphics.hpp>
 #include <memory>
 #include <vector>
+#include <functional>
 
 export module animation;
 
@@ -15,6 +15,9 @@ export namespace animation {
         void update(float deltaTime);
         void draw(sf::RenderWindow& window) const;
         [[nodiscard]] bool isAnimationComplete() const;
+
+        void operator()(const std::vector<int>& linesToClear);
+        bool operator==(const AnimationController& other) const;
 
     private:
         struct AnimationLine {

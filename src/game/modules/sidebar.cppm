@@ -1,6 +1,7 @@
 module;
 
 #include <SFML/Graphics.hpp>
+#include <functional>
 
 export module sidebar;
 import blocks;
@@ -9,6 +10,7 @@ export namespace sidebar {
     class Sidebar {
     public:
         Sidebar(int windowWidth, int windowHeight, int gridWidth);
+
         void draw(sf::RenderWindow& window) const;
         void updateScore(int newScore);
         bool isPauseClicked(const sf::Vector2f& mousePos) const;
@@ -16,6 +18,10 @@ export namespace sidebar {
         bool isCloseClicked(const sf::Vector2f& mousePos) const;
         void updateNextBlock(std::unique_ptr<blocks::Blocks> nextBlock);
         void showGameOver(bool isGameOver);
+
+        void operator()(int newScore);
+        void operator()(std::unique_ptr<blocks::Blocks> nextBlock);
+        bool operator==(const Sidebar& other) const;
 
     private:
         sf::Font m_font;

@@ -812,4 +812,26 @@ CMakeFiles\main.dir\src\game\modules\sidebar.cppm.obj.ddi: \
   C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/Glsl.inl \
   C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/Sprite.hpp \
   C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/Text.hpp \
-  C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp
+  C:/Esimed\ admin/C++/TetrisC/cmake-build-debug/_deps/sfml-src/include/SFML/Graphics/VertexBuffer.hpp \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/functional \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/binary_negate.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/bind.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/bind_back.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/perfect_forward.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/bind_front.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/binder1st.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/binder2nd.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/boyer_moore_searcher.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/unordered_map \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__hash_table \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/compose.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/default_searcher.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/function.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__memory/builtin_new_allocator.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__type_traits/strip_signature.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/mem_fn.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/mem_fun_ref.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/not_fn.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_binary_function.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/pointer_to_unary_function.h \
+  C:/devTools/c++/LLVM_18.18/llvm-mingw-20240619-msvcrt-x86_64/include/c++/v1/__functional/unary_negate.h

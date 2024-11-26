@@ -5,11 +5,14 @@ module;
 #include <memory>
 #include <vector>
 #include <utility>
+#include <iostream>
+#include <functional>
+#include <algorithm>
+#include <cmath>
 
 module blocks;
 
 namespace blocks {
-
     const std::vector<std::array<std::pair<int, int>, 4>> shapes = {
         {{ {0, 0}, {1, 0}, {2, 0}, {3, 0} }}, // Forme I
         {{ {0, 0}, {1, 0}, {0, 1}, {1, 1} }}, // Forme O
@@ -27,6 +30,7 @@ namespace blocks {
     {
         initializeBlocks(texture, tileIndex);
     }
+
     void Blocks::initializeBlocks(const sf::Texture& texture, int shapeType) {
         m_shape = shapes[shapeType];
 
@@ -103,5 +107,35 @@ namespace blocks {
 
         newBlock->m_shape = m_shape;
         return newBlock;
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Blocks& blocks) {
+        auto positions = blocks.getPositions();
+        os << "Block positions: ";
+        for (const auto& pos : positions) {
+            os << "(" << pos.x << "," << pos.y << ") ";
+        }
+        return os;
+    }
+
+    bool Blocks::operator==(const Blocks& other) const {
+        auto thisPositions = getPositions();
+        auto otherPositions = other.getPositions();
+
+        return std::ranges::equal(thisPositions, otherPositions,
+                                  [](const sf::Vector2f& a, const sf::Vector2f& b) {
+                                      return std::abs(a.x - b.x) < 0.1f &&
+                                             std::abs(a.y - b.y) < 0.1f;
+                                  });
+    }
+
+    void Blocks::transform(std::function<sf::Vector2f(const sf::Vector2f&)> transformFunc) const {
+        auto currentPositions = getPositions();
+
+        std::array<sf::Vector2f, 4> newPositions;
+        std::ranges::transform(currentPositions,
+                               newPositions.begin(), transformFunc);
+
+        setPositions(newPositions);
     }
 }

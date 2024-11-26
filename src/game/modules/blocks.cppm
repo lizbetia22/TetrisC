@@ -3,6 +3,7 @@ module;
 #include <SFML/Graphics.hpp>
 #include <array>
 #include <memory>
+#include <functional>
 
 export module blocks;
 
@@ -20,6 +21,11 @@ export namespace blocks {
         void draw(sf::RenderWindow& window) const;
         void move(int dx, int dy) const;
         void rotateShape() const;
+
+        friend std::ostream& operator<<(std::ostream& os, const Blocks& blocks);
+        bool operator==(const Blocks& other) const;
+
+        void transform(std::function<sf::Vector2f(const sf::Vector2f&)> transformFunc) const;
 
         [[nodiscard]] const std::array<std::unique_ptr<sf::Sprite>, 4>& getBlocks() const;
         [[nodiscard]] std::array<sf::Vector2f, 4> getPositions() const;

@@ -1,57 +1,73 @@
 module;
-
 #include <SFML/Audio.hpp>
 #include <stdexcept>
 #include <string>
+#include <functional>
 
 module songController;
 
 namespace songController {
+    SongPlayer::SongPlayer() :
+        backgroundMusic(std::make_unique<sf::Music>()),
+        soundBuffer(std::make_unique<sf::SoundBuffer>()),
+        collisionSound(std::make_unique<sf::Sound>()) {}
 
-    SongPlayer::SongPlayer() : backgroundMusic(), soundBuffer(), collisionSound() {}
+    void SongPlayer::operator()(const std::string& filename, bool isBackground) const {
+        auto playMusicLambda = [this, &filename, isBackground]() {
+            if (isBackground) {
+                loadBackgroundMusic(filename);
+            } else {
+                playCollisionSound(filename);
+            }
+        };
+        playMusicLambda();
+    }
 
-    void SongPlayer::loadBackgroundMusic(const std::string& filename) {
-        if (!backgroundMusic.openFromFile(filename)) {
+    bool SongPlayer::operator==(const SongPlayer& other) const {
+        return backgroundMusic.get() == other.backgroundMusic.get();
+    }
+
+    void SongPlayer::loadBackgroundMusic(const std::string& filename) const {
+        if (!backgroundMusic->openFromFile(filename)) {
             throw std::runtime_error("Unable to load background music file: " + filename);
         }
-        backgroundMusic.setLoop(true);
-        backgroundMusic.play();
+        backgroundMusic->setLoop(true);
+        backgroundMusic->play();
     }
 
-    void SongPlayer::playCollisionSound(const std::string& filename) {
-        if (!soundBuffer.loadFromFile(filename)) {
-            throw std::runtime_error("Unable to load collision sound file: " + filename);
-        }
-        collisionSound.setBuffer(soundBuffer);
-        collisionSound.play();
+    void SongPlayer::playCollisionSound(const std::string& filename) const {
+        auto playSoundLambda = [this, &filename]() {
+            if (!soundBuffer->loadFromFile(filename)) {
+                throw std::runtime_error("Unable to load collision sound file: " + filename);
+            }
+            collisionSound->setBuffer(*soundBuffer);
+            collisionSound->play();
+        };
+        playSoundLambda();
     }
 
-    void SongPlayer::playGameOverSound(const std::string& filename) {
-        if (!soundBuffer.loadFromFile(filename)) {
-            throw std::runtime_error("Unable to load game over sound file: " + filename);
-        }
-        collisionSound.setBuffer(soundBuffer);
-        collisionSound.play();
+    void SongPlayer::playGameOverSound(const std::string& filename) const {
+        playCollisionSound(filename);
     }
 
-    void SongPlayer::stop() {
-        backgroundMusic.stop();
+    void SongPlayer::stop() const {
+        if (backgroundMusic) backgroundMusic->stop();
     }
 
-    void SongPlayer::pause() {
-        backgroundMusic.pause();
+    void SongPlayer::pause() const {
+        if (backgroundMusic) backgroundMusic->pause();
     }
 
-    void SongPlayer::resume() {
-        backgroundMusic.play();
+    void SongPlayer::resume() const {
+        if (backgroundMusic) backgroundMusic->play();
     }
 
-    void SongPlayer::setBackgroundVolume(float volume) {
-        backgroundMusic.setVolume(volume);
+    void SongPlayer::setBackgroundVolume(float volume) const {
+        if (backgroundMusic) backgroundMusic->setVolume(volume);
     }
 
-    void SongPlayer::setCollisionSoundVolume(float volume) {
-        collisionSound.setVolume(volume);
+    void SongPlayer::setCollisionSoundVolume(float volume) const {
+        if (collisionSound) collisionSound->setVolume(volume);
     }
 
     SongPlayer::~SongPlayer() {
