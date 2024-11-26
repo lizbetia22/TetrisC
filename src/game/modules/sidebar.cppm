@@ -18,6 +18,7 @@ export namespace sidebar {
         bool isCloseClicked(const sf::Vector2f& mousePos) const;
         void updateNextBlock(std::unique_ptr<blocks::Blocks> nextBlock);
         void showGameOver(bool isGameOver);
+        void togglePause();
 
         void operator()(int newScore);
         void operator()(std::unique_ptr<blocks::Blocks> nextBlock);
@@ -38,5 +39,6 @@ export namespace sidebar {
         int m_score;
         sf::Text m_gameOverText;
         bool m_isGameOver;
+        bool m_isPaused;
     };
 }

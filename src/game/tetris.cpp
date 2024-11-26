@@ -46,15 +46,15 @@ namespace tetris {
 
                 if (m_sidebar.isPauseClicked(mousePos)) {
                     m_isPaused = !m_isPaused;
-                    sidebar.togglePause();
+                    m_sidebar.togglePause();
                     m_isPaused ? m_songPlayer.pause() : m_songPlayer.resume();
                 }
 
                 if (m_sidebar.isRestartClicked(mousePos)) {
+                    m_controller.resetGame();
                     m_score = 0;
                     m_sidebar.updateScore(m_score);
                     m_sidebar.showGameOver(false);
-                    m_controller.resetGame();
                     m_songPlayer.stop();
                     m_songPlayer.loadBackgroundMusic("assets/songs/tetris_classic_song.wav");
                 }

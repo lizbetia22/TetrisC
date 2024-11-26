@@ -11,7 +11,8 @@ module sidebar;
 namespace sidebar {
     Sidebar::Sidebar(int windowWidth, int windowHeight, int gridWidth) :
         m_score(0),
-        m_isGameOver(false) {
+        m_isGameOver(false),
+        m_isPaused(false) {
 
         auto loadFont = [this]() {
             if (!m_font.loadFromFile("assets/fonts/stocky.ttf")) {
@@ -83,6 +84,17 @@ namespace sidebar {
                                 gridWidth * 60 + (20 - m_gameOverText.getLocalBounds().width) / 2,
                                 800
                             ));
+    }
+
+    void Sidebar:: togglePause() {
+        m_isPaused = !m_isPaused;
+        m_pauseText.setString(m_isPaused ? "Continuer" : "Pause");
+        float buttonWidth = m_pauseButton.getSize().x;
+        float buttonHeight = m_pauseButton.getSize().y;
+        m_pauseText.setPosition(
+            m_pauseButton.getPosition().x + (buttonWidth - m_pauseText.getLocalBounds().width) / 2,
+            m_pauseButton.getPosition().y + (buttonHeight - m_pauseText.getLocalBounds().height) / 2
+        );
     }
 
     void Sidebar::operator()(int newScore) {
