@@ -57,6 +57,9 @@ namespace tetris {
                     m_sidebar.showGameOver(false);
                     m_songPlayer.stop();
                     m_songPlayer.loadBackgroundMusic("assets/songs/tetris_classic_song.wav");
+                    m_isPaused = false;
+                    m_sidebar.togglePause();
+                    m_songPlayer.resume();
                 }
 
                 if (m_sidebar.isCloseClicked(mousePos)) {
