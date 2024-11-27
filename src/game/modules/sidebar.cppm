@@ -19,6 +19,7 @@ export namespace sidebar {
         void updateNextBlock(std::unique_ptr<blocks::Blocks> nextBlock);
         void showGameOver(bool isGameOver);
         void togglePause();
+        void resetPauseState();
 
         void operator()(int newScore);
         void operator()(std::unique_ptr<blocks::Blocks> nextBlock);

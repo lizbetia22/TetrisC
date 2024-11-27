@@ -55,10 +55,10 @@ namespace tetris {
                     m_score = 0;
                     m_sidebar.updateScore(m_score);
                     m_sidebar.showGameOver(false);
+                    m_sidebar.resetPauseState();
                     m_songPlayer.stop();
                     m_songPlayer.loadBackgroundMusic("assets/songs/tetris_classic_song.wav");
                     m_isPaused = false;
-                    m_sidebar.togglePause();
                     m_songPlayer.resume();
                 }
 

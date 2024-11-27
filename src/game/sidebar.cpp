@@ -97,6 +97,17 @@ namespace sidebar {
         );
     }
 
+    void Sidebar:: resetPauseState() {
+        m_isPaused = false;
+        m_pauseText.setString("Pause");
+        float buttonWidth = m_pauseButton.getSize().x;
+        float buttonHeight = m_pauseButton.getSize().y;
+        m_pauseText.setPosition(
+            m_pauseButton.getPosition().x + (buttonWidth - m_pauseText.getLocalBounds().width) / 2,
+            m_pauseButton.getPosition().y + (buttonHeight - m_pauseText.getLocalBounds().height) / 2
+        );
+    }
+
     void Sidebar::operator()(int newScore) {
         updateScore(newScore);
     }
