@@ -13,14 +13,14 @@ namespace songController {
         collisionSound(std::make_unique<sf::Sound>()) {}
 
     void SongPlayer::operator()(const std::string& filename, bool isBackground) const {
-        auto playMusicLambda = [this, &filename, isBackground]() {
+        auto playMusic = [this, &filename, isBackground]() {
             if (isBackground) {
                 loadBackgroundMusic(filename);
             } else {
                 playCollisionSound(filename);
             }
         };
-        playMusicLambda();
+        playMusic();
     }
 
     bool SongPlayer::operator==(const SongPlayer& other) const {
@@ -36,14 +36,14 @@ namespace songController {
     }
 
     void SongPlayer::playCollisionSound(const std::string& filename) const {
-        auto playSoundLambda = [this, &filename]() {
+        auto playSound = [this, &filename]() {
             if (!soundBuffer->loadFromFile(filename)) {
                 throw std::runtime_error("Unable to load collision sound file: " + filename);
             }
             collisionSound->setBuffer(*soundBuffer);
             collisionSound->play();
         };
-        playSoundLambda();
+        playSound();
     }
 
     void SongPlayer::playGameOverSound(const std::string& filename) const {

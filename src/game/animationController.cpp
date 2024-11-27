@@ -23,7 +23,7 @@ namespace animation {
     }
 
     void AnimationController::startLineAnimation(const std::vector<int>& linesToClear) {
-        auto createSpriteLambda = [this](int x, int lineY) {
+        auto createSprite = [this](int x, int lineY) {
             auto sprite = std::make_unique<sf::Sprite>();
             sprite->setTexture(m_texture);
             sprite->setTextureRect(sf::IntRect(0, 0, 512, 512));
@@ -46,7 +46,7 @@ namespace animation {
             animLine.animationTimer = 0.0f;
 
             for (int x = 0; x < m_gridWidth; ++x) {
-                animLine.sprites.push_back(createSpriteLambda(x, lineY));
+                animLine.sprites.push_back(createSprite(x, lineY));
             }
 
             m_animationLines.push_back(std::move(animLine));
@@ -54,7 +54,7 @@ namespace animation {
     }
 
     void AnimationController::update(float deltaTime) {
-        auto updateSpriteLambda = [this](AnimationLine& animLine, float progress) {
+        auto updateSprite = [this](AnimationLine& animLine, float progress) {
             animLine.opacity = 1.0f - progress;
             for (auto& sprite : animLine.sprites) {
                 sf::Color color = sprite->getColor();
@@ -73,7 +73,7 @@ namespace animation {
             animLine.animationTimer += deltaTime;
             float progress = std::min(animLine.animationTimer / 0.5f, 1.0f);
 
-            updateSpriteLambda(animLine, progress);
+            updateSprite(animLine, progress);
 
             if (progress < 1.0f) {
                 allLinesComplete = false;
