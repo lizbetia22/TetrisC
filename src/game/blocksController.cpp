@@ -247,7 +247,7 @@ namespace blocksController {
 
     void BlocksController::updateFallSpeed(int score){
         m_score = score;
-        float speedMultiplier = 1.0f - (static_cast<float>(score / 20) * 0.15f);
+        float speedMultiplier = 1.0f - (static_cast<float>(score / 10) * 0.15f);
         m_fallDelay = std::max(0.08f, speedMultiplier);
     }
 
